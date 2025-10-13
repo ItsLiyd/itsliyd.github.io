@@ -8,10 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap" rel="stylesheet">
     
     <style>
-        /* === Variabel Warna (Sesuai Desain Peach/Kuning Ceria) === */
+        /* === Variabel Warna === */
         :root {
             --peach-utama: #FFDDAA;  /* Peach lembut */
-            --peach-aksen: #FFF5E5;  /* Kuning Paling Muda */
+            --peach-aksen: #FFF5E5;  /* Latar Belakang - Warna Peach di Screenshot */
             --teks-gelap: #4A4A4A;   /* Abu-abu gelap */
             --latar-terang: #FFFFFF; /* Putih */
             --hijau-muda: #B8E09D;   /* Aksen Hijau */
@@ -20,10 +20,10 @@
 
         /* === Pengaturan Dasar === */
         body {
-            font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins */
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--peach-aksen); /* Latar belakang kuning muda/peach */
+            background-color: var(--peach-aksen); /* Warna ini yang Anda lihat */
             color: var(--teks-gelap);
             line-height: 1.6;
         }
@@ -35,12 +35,13 @@
             padding: 20px;
         }
 
-        /* === Header / Intro Section === */
+        /* === Header / Intro Section (Bagian Paling Atas) === */
         .header-intro {
             text-align: center;
             padding: 40px 0;
-            background-color: var(--peach-utama); /* Latar belakang peach utama */
-            border-radius: 0 0 50px 50px; /* Bentuk melengkung di bagian bawah seperti di desain */
+            background-color: var(--peach-utama);
+            /* Kurva di bawah */
+            border-radius: 0 0 50px 50px; 
             margin-bottom: 30px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
@@ -58,4 +59,126 @@
             font-size: 1.8rem;
             color: var(--latar-terang);
             font-weight: 800;
-            border: 10
+            border: 10px solid var(--latar-terang); 
+            box-shadow: 0 0 0 5px var(--hijau-muda); 
+        }
+
+        .header-intro h1 {
+            font-size: 2.5rem;
+            margin: 5px 0 0;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .header-intro p {
+            font-size: 1.1rem;
+            color: var(--teks-gelap);
+            font-weight: 600;
+        }
+        
+        /* === Section Konten === */
+        .content-section {
+            background-color: var(--latar-terang);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .content-section h2 {
+            color: var(--teks-gelap);
+            font-size: 1.8rem;
+            border-bottom: 3px solid var(--peach-utama);
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-weight: 800;
+        }
+
+        /* === Gaya Link & Tombol === */
+        .link-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .link-list a {
+            display: block;
+            background-color: var(--peach-utama);
+            color: var(--teks-gelap);
+            padding: 15px 20px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-align: center;
+            box-shadow: 0 3px 0 var(--teks-gelap); 
+            transition: all 0.1s ease;
+        }
+
+        .link-list a:hover {
+            background-color: var(--hijau-muda); 
+            transform: translateY(2px); 
+            box-shadow: 0 1px 0 var(--teks-gelap);
+        }
+
+        /* === Footer === */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--teks-gelap);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-intro">
+        <div class="ilustrasi">
+            Lio
+        </div>
+        <h1>ITS LIYD</h1>
+        <p>Content Creator & Pesatir-Handalz | OTW 100K Subs! 🚀</p>
+    </div>
+
+    <div class="container">
+
+        <div class="content-section">
+            <h2>👋 About Me</h2>
+            <p>
+                Hai guys! Kenalin nama gue **Lio**, yang kalian kenal sebagai ItsLiyd atau Pesatir-Handalz. Saya fokus membuat konten menarik di **YouTube** dan saat ini sangat bersemangat untuk mencapai 100k subscriber.
+            </p>
+            <p>
+                Saya menyukai proses *scripting*, *editing*, dan berinteraksi dengan komunitas. Tujuan saya adalah memberikan konten yang menghibur dan informatif.
+            </p>
+        </div>
+        
+        <div class="content-section">
+            <h2>🔗 Terhubung dengan ItsLiyd</h2>
+            
+            <ul class="link-list">
+                <li><a href="[LINK YOUTUBE ANDA]" target="_blank">📺 Channel YouTube Utama (OTW 100K!)</a></li>
+                <li><a href="[LINK INSTAGRAM ANDA]" target="_blank">📸 Follow di Instagram</a></li>
+                <li><a href="[LINK TIKTOK ANDA]" target="_blank">🎵 Tonton Konten Pendek di TikTok</a></li>
+                <li><a href="mailto:[EMAIL BISNIS ANDA]" target="_blank">📧 Hubungi untuk Kerjasama Bisnis</a></li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>💡 Kegiatan Lain</h2>
+            <ul>
+                <li>Mengembangkan keahlian dalam video editing (Adobe Premiere Pro & CapCut).</li>
+                <li>Mempelajari dasar-dasar web development (HTML/CSS) untuk branding.</li>
+                <li>Gaming [Sebutkan Game Favorit] secara kasual.</li>
+            </ul>
+        </div>
+        
+    </div>
+
+    <footer>
+        <p>ItsLiyd - Dibuat dengan semangat konten ceria. | &copy; 2025</p>
+    </footer>
+
+</body>
+</html>
