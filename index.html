@@ -3,214 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World! I'm ItsLiyd</title>
+    <title>Hello World! - ItsLiyd</title>
     <style>
-        /* === Variabel Warna (Sesuai Desain Peach/Kuning Ceria) === */
-        :root {
-            --peach-utama: #FFDDAA; /* Peach lembut (seperti latar belakang gambar) */
-            --peach-aksen: #FFF5E5; /* Kuning Paling Muda untuk highlight */
-            --teks-gelap: #4A4A4A;  /* Abu-abu gelap yang lebih halus */
-            --latar-terang: #FFFFFF; /* Putih untuk latar belakang utama */
-            --hijau-muda: #B8E09D;  /* Aksen Hijau */
-            --biru-langit: #A0D8F0; /* Aksen Biru */
-        }
+        /* Mengimpor font dari Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;500;700&display=swap');
 
-        /* === Pengaturan Dasar === */
+        /* Reset dan Pengaturan Dasar */
         body {
-            font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: var(--latar-terang);
-            color: var(--teks-gelap);
-            line-height: 1.6;
-        }
-
-        /* === Header / Navbar === */
-        header {
-            background-color: var(--peach-utama); /* Menggunakan warna peach */
-            color: var(--teks-gelap);
-            padding: 1rem 2rem;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-
-        nav a {
-            color: var(--teks-gelap);
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--latar-terang);
-        }
-
-        /* === Konten Utama === */
-        .container {
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 0 20px;
-        }
-
-        section {
-            background-color: var(--latar-terang);
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            /* Aksen garis samping bisa diubah menjadi warna hijau atau biru */
-            border-left: 5px solid var(--hijau-muda); 
-        }
-
-        h2 {
-            color: var(--teks-gelap);
-            border-bottom: 2px solid var(--peach-utama);
-            padding-bottom: 5px;
-            margin-top: 0;
-        }
-
-        /* === Bagian Profil (Highlight - Mirip Desain Gambar) === */
-        #profil {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FEFDFB; /* Warna latar belakang utama */
+            color: #444;
             display: flex;
-            align-items: center;
-            gap: 30px;
-            background-color: var(--peach-aksen); /* Latar kuning/peach muda */
-            color: var(--teks-gelap);
-            padding: 40px;
-            border-left: none; /* Hilangkan garis kiri bawaan section */
-            border-radius: 15px;
-        }
-        
-        /* Gaya Ilustrasi di Gambar (Simulasi) */
-        #profil .ilustrasi {
-            background-color: var(--biru-langit); /* Simulasi lingkaran biru */
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            color: var(--latar-terang);
-            font-weight: bold;
-            font-size: 1.5rem;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* Garis vertikal di samping tulisan */
-        #profil div {
-            border-left: 5px solid var(--peach-utama); /* Garis vertikal peach */
+        /* Kontainer Utama */
+        .main-container {
+            width: 100%;
+            max-width: 1200px;
+            position: relative;
+            padding: 40px;
+        }
+
+        /* Bentuk Latar Belakang Melengkung */
+        .background-shape {
+            position: absolute;
+            top: 0;
+            left: -5%;
+            right: -5%;
+            height: 500px;
+            background-color: #FFF3E4; /* Warna krem/peach muda */
+            border-bottom-left-radius: 50% 40%;
+            border-bottom-right-radius: 50% 40%;
+            z-index: 1;
+        }
+
+        /* Konten Wrapper (Teks dan Gambar) */
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 50px 0;
+        }
+
+        /* Area Teks di Sebelah Kiri */
+        .text-section {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
             padding-left: 20px;
+            border-left: 5px solid #F58A4B; /* Garis oranye vertikal */
         }
 
-        #profil .judul-besar {
-            font-size: 2.8rem;
+        .text-section .headline {
+            font-family: 'Fredoka One', cursive;
+            font-size: 3.5rem; /* Ukuran font "Hello World!" */
+            color: #F58A4B; /* Warna oranye */
+            line-height: 1.2;
             margin: 0;
-            line-height: 1.1;
-            font-weight: 800;
-            color: var(--teks-gelap);
-            text-transform: uppercase;
-        }
-        
-        #profil .sub-judul {
-            font-size: 1.2rem;
-            margin: 0;
-            color: var(--teks-gelap);
-            font-weight: 500;
         }
 
-        #profil h3 {
-            font-size: 1.5rem;
-            color: var(--teks-gelap);
-            margin-top: 15px;
+        .text-section .subtitle {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem; /* Ukuran font "IM ITSLIYD!" */
+            color: #F58A4B;
+            margin: 0 0 30px 0;
         }
-        
-        #profil p {
+
+        .text-section .intro-text {
             font-size: 1.1rem;
-            margin-bottom: 0;
+            line-height: 1.6;
+            color: #8C4D2E; /* Warna coklat tua/maroon */
         }
-
-        /* === Tombol/Link === */
-        .tombol {
+        
+        .intro-text .emoji {
             display: inline-block;
-            background-color: var(--peach-utama);
-            color: var(--teks-gelap);
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s, transform 0.2s;
+            transform: rotate(20deg);
         }
 
-        .tombol:hover {
-            background-color: var(--peach-aksen);
-            transform: translateY(-2px);
+        /* Area Ilustrasi Lingkaran di Sebelah Kanan */
+        .illustration-section {
+            flex-shrink: 0;
         }
 
-        /* === Footer === */
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background-color: var(--teks-gelap);
-            color: var(--peach-aksen);
-            margin-top: 50px;
+        .circle-frame {
+            width: 320px;
+            height: 320px;
+            border: 10px solid #F58A4B; /* Border oranye */
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            background-color: #87CEEB; /* Warna langit */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Komponen Ilustrasi di dalam Lingkaran */
+        .hill-1 {
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 420px;
+            height: 200px;
+            background-color: #6BB663; /* Hijau muda */
+            border-radius: 50%;
+        }
+
+        .hill-2 {
+            position: absolute;
+            bottom: -80px;
+            right: -80px;
+            width: 400px;
+            height: 200px;
+            background-color: #58A550; /* Hijau lebih tua */
+            border-radius: 50%;
+        }
+
+        .cloud {
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 40px;
+            background: white;
+            border-radius: 20px;
+        }
+        
+        .cloud::before, .cloud::after {
+            content: '';
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .cloud::before {
+            width: 60px;
+            height: 60px;
+            top: -30px;
+            left: 20px;
+        }
+
+        .cloud::after {
+            width: 70px;
+            height: 70px;
+            top: -25px;
+            right: 10px;
+        }
+
+        /* Responsivitas untuk layar kecil */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .text-section {
+                border-left: none;
+                border-top: 5px solid #F58A4B;
+                padding-left: 0;
+                padding-top: 20px;
+                max-width: 100%;
+            }
+
+            .text-section .headline {
+                font-size: 2.8rem;
+            }
+
+            .circle-frame {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .background-shape {
+                height: 100%;
+                border-radius: 0;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <nav>
-            <a href="#keahlian">KEAHLIAN</a>
-            <a href="#kontak">KONTAK</a>
-        </nav>
-    </header>
+    <div class="main-container">
+        <div class="background-shape"></div>
 
-    <div class="container">
-
-        <section id="profil">
-            <div class="ilustrasi">
-                ItsLiyd
-            </div>
-            <div>
-                <p class="judul-besar">Hello World!</p>
-                <p class="sub-judul">I'M ITSLIYD!</p>
-                
-                <h3>Hai gusy 👋</h3>
-                <p>
-                    Kenalin nama gue **Lio**, atau lebih akrab dikenal dengan nama panggung **ItsLiyd** atau **Pesatir-Handalz**. Gw aktif buat konten di platform **Youtube** yang saat ini masih **otw ke 100k subs**.
+        <div class="content-wrapper">
+            
+            <div class="text-section">
+                <h1 class="headline">Hello World!</h1>
+                <p class="subtitle">IM ITSLIYD!</p>
+                <p class="intro-text">
+                    Hai gusy <span class="emoji">👋</span><br>
+                    Kenalin nama gue Lio, atau lebih akrab dikenal dengan nama panggung ItsLiyd atau Pesatir-Handalz. Gw aktif buat konten di platform Youtube yang saat ini masih otw ke 100k subs
                 </p>
-                <a href="[LINK CHANNEL YOUTUBE ANDA]" target="_blank" class="tombol" style="margin-top: 15px;">Kunjungi Channel YouTube</a>
             </div>
-        </section>
 
-        <section id="keahlian">
-            <h2>✨ Minat & Kegiatan Lain</h2>
-            <p>Selain membuat konten, saya juga tertarik pada:</p>
-            <ul>
-                <li>**[Sebutkan Minat Utama 1]** (Contoh: Web Development & UI/UX Design).</li>
-                <li>**[Sebutkan Minat Utama 2]** (Contoh: Gaming Kompetitif, khususnya [Nama Game]).</li>
-                <li>**Pengembangan Diri:** Belajar skill baru dan berkolaborasi.</li>
-            </ul>
-        </section>
+            <div class="illustration-section">
+                <div class="circle-frame">
+                    <div class="hill-2"></div>
+                    <div class="hill-1"></div>
+                    <div class="cloud"></div>
+                </div>
+            </div>
 
-        <section id="kontak">
-            <h2>📧 Mari Terhubung & Kolaborasi</h2>
-            <p>
-                Tertarik untuk berdiskusi, kolaborasi konten, atau kerjasama lainnya? Jangan ragu untuk menghubungi saya!
-            </p>
-            <p>
-                Email Bisnis: <a href="mailto:email.bisnis@domain.com" class="tombol">email.bisnis@domain.com</a>
-            </p>
-            <p>
-                Platform Lain: <a href="[LINK INSTAGRAM ANDA]" target="_blank" class="tombol">@InstagramItsLiyd</a>
-            </p>
-        </section>
-
+        </div>
     </div>
-
-    <footer>
-        <p>&copy; 2025 ItsLiyd. Dibuat dengan semangat ceria!</p>
-    </footer>
 
 </body>
 </html>
