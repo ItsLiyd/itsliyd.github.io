@@ -3,178 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World! - ItsLiyd</title>
-    <style>
-        /* Mengimpor font dari Google Fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;500;700&display=swap');
+    <title>Lio - Content Creator</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-        /* Reset dan Pengaturan Dasar */
+    <style>
+        /* Pengaturan Dasar */
         body {
             margin: 0;
-            padding: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: #FEFDFB; /* Warna latar belakang utama */
-            color: #444;
+            background-color: #000000; /* Latar belakang hitam pekat */
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            padding: 30px 15px;
+        }
+
+        /* Kontainer Utama */
+        .container {
+            max-width: 680px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Bagian Header Profil */
+        .profile-header {
+            margin-bottom: 30px;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #007BFF; /* Border biru elektrik */
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .verified-icon {
+            color: #007BFF; /* Warna centang biru */
+            font-size: 1.5rem;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #b0b0b0;
+            margin-top: 5px;
+        }
+
+        /* Deskripsi Perkenalan */
+        .intro {
+            font-size: 0.95rem;
+            color: #dcdcdc;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        /* Tombol Tautan Media Sosial */
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .link-button {
+            background-color: #1c1c1e; /* Abu-abu sangat gelap */
+            color: #ffffff;
+            text-decoration: none;
+            padding: 15px 25px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            overflow-x: hidden; /* Mencegah scroll horizontal */
+            justify-content: center; /* Teks di tengah tombol */
+            font-size: 1rem;
+            font-weight: 600;
+            transition: transform 0.2s ease, background-color 0.2s ease;
         }
 
-        /* Kontainer Utama - menjadi dasar untuk positioning */
-        .main-container {
+        .link-button:hover {
+            transform: scale(1.03); /* Efek sedikit membesar saat disentuh */
+            background-color: #2c2c2e;
+        }
+
+        .link-button i {
+            font-size: 1.5rem;
+            width: 40px; /* Memberi ruang untuk ikon */
+            text-align: left;
+        }
+
+        .link-button span {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        /* Galeri Portofolio */
+        .gallery {
+            margin-bottom: 50px;
+        }
+
+        .gallery h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #007BFF;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-grid img {
             width: 100%;
-            max-width: 1100px; /* Sedikit diperkecil untuk layout yang lebih rapat */
-            margin: auto;
-            position: relative; /* Penting untuk positioning elemen anak */
-            min-height: 550px; /* Memberi ruang agar elemen tidak terpotong */
-            padding: 20px;
+            border-radius: 12px;
+            aspect-ratio: 16 / 9; /* Rasio thumbnail YouTube */
+            object-fit: cover;
+            transition: transform 0.2s ease;
         }
 
-        /* Bentuk Latar Belakang Melengkung */
-        .background-shape {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 480px;
-            background-color: #FFF3E4; /* Warna krem/peach muda */
-            /* Radius disesuaikan untuk menciptakan kurva yang pas */
-            border-bottom-left-radius: 50% 60px;
-            border-bottom-right-radius: 50% 60px;
-            z-index: 1;
+        .gallery-grid img:hover {
+            transform: scale(1.05);
         }
 
-        /* Konten Wrapper - sekarang hanya untuk teks */
-        .content-wrapper {
-            position: relative;
-            z-index: 2;
-            padding-top: 80px; /* Menurunkan teks sedikit */
-        }
-
-        /* Area Teks di Sebelah Kiri */
-        .text-section {
-            width: 45%; /* Membatasi lebar teks agar tidak bertabrakan */
-            max-width: 480px;
-            padding-left: 20px;
-            border-left: 5px solid #F58A4B; /* Garis oranye vertikal */
-        }
-
-        .text-section .headline {
-            font-family: 'Fredoka One', cursive;
-            font-size: 4rem; /* Ukuran font "Hello World!" */
-            color: #F58A4B; /* Warna oranye */
-            line-height: 1.1;
-            margin: 0;
-        }
-
-        .text-section .subtitle {
-            font-family: 'Fredoka One', cursive;
-            font-size: 1.8rem; /* Ukuran font "IM ITSLIYD!" */
-            color: #F58A4B;
-            margin: 5px 0 30px 0;
-        }
-
-        .text-section .intro-text {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: #8C4D2E; /* Warna coklat tua/maroon */
-        }
-        
-        .intro-text .emoji {
-            display: inline-block;
-            transform: rotate(20deg);
-        }
-
-        /* Area Ilustrasi Lingkaran - Menggunakan Absolute Positioning */
-        .illustration-section {
-            position: absolute; /* Kunci untuk penempatan presisi */
-            top: 60px; /* Jarak dari atas container */
-            right: 20px; /* Jarak dari kanan container */
-            z-index: 3; /* Pastikan berada di atas semua elemen lain */
-        }
-
-        .circle-frame {
-            width: 350px; /* Sedikit diperbesar sesuai gambar */
-            height: 350px;
-            border: 12px solid #F58A4B; /* Border oranye */
-            border-radius: 50%;
-            position: relative;
-            overflow: hidden;
-            background-color: #87CEEB; /* Warna langit */
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        /* Komponen Ilustrasi di dalam Lingkaran (tidak berubah) */
-        .hill-1 {
-            position: absolute; bottom: -50px; left: -50px; width: 420px; height: 200px;
-            background-color: #6BB663; border-radius: 50%;
-        }
-        .hill-2 {
-            position: absolute; bottom: -80px; right: -80px; width: 400px; height: 200px;
-            background-color: #58A550; border-radius: 50%;
-        }
-        .cloud {
-            position: absolute; top: 70px; left: 50%; transform: translateX(-50%);
-            width: 120px; height: 40px; background: white; border-radius: 20px;
-        }
-        .cloud::before, .cloud::after {
-            content: ''; position: absolute; background: white; border-radius: 50%;
-        }
-        .cloud::before { width: 60px; height: 60px; top: -30px; left: 20px; }
-        .cloud::after { width: 70px; height: 70px; top: -25px; right: 10px; }
-
-        /* Responsivitas untuk layar kecil */
-        @media (max-width: 992px) {
-            .main-container { min-height: initial; }
-            .illustration-section {
-                /* Pindahkan ilustrasi ke tengah atas */
-                position: relative;
-                top: 0; right: 0;
-                margin: 0 auto 30px auto;
-                display: block;
-            }
-            .circle-frame { width: 280px; height: 280px; border-width: 10px; }
-            .content-wrapper { padding-top: 20px; }
-            .text-section {
-                width: 100%; max-width: 500px; margin: auto; text-align: center;
-                border-left: none; padding-left: 0;
-                border-top: 5px solid #F58A4B; padding-top: 20px;
-            }
-            .background-shape { height: 350px; }
-        }
-
-        @media (max-width: 480px) {
-            .text-section .headline { font-size: 3rem; }
-            .text-section .subtitle { font-size: 1.5rem; }
-            .circle-frame { width: 220px; height: 220px; }
+        /* Footer */
+        footer {
+            font-size: 0.9rem;
+            color: #777;
         }
     </style>
 </head>
 <body>
 
-    <div class="main-container">
-        <div class="background-shape"></div>
+    <div class="container">
 
-        <div class="content-wrapper">
-            <div class="text-section">
-                <h1 class="headline">Hello World!</h1>
-                <p class="subtitle">IM ITSLIYD!</p>
-                <p class="intro-text">
-                    Hai gusy <span class="emoji">👋</span><br>
-                    Kenalin nama gue Lio, atau lebih akrab dikenal dengan nama panggung ItsLiyd atau Pesatir-Handalz. Gw aktif buat konten di platform Youtube yang saat ini masih otw ke 100k subs
-                </p>
-            </div>
-        </div>
+        <header class="profile-header">
+            <img src="https://yt3.googleusercontent.com/ytc/AIdro_k9R8vW2Wb_a_o8B-9B_D-L_I-k_H-N-g_s_g=s900-c-k-c0x00ffffff-no-rj" alt="Foto Profil Lio" class="profile-pic">
+            <h1 class="name">
+                Lio
+                <i class="fas fa-check-circle verified-icon"></i>
+            </h1>
+            <p class="subtitle">Content Creator | Editor</p>
+        </header>
 
-        <div class="illustration-section">
-            <div class="circle-frame">
-                <div class="hill-2"></div>
-                <div class="hill-1"></div>
-                <div class="cloud"></div>
+        <section>
+            <p class="intro">
+                Hello everyone, I am a content creator from Indonesia. On this website I share my work and projects. enjoy!
+            </p>
+        </section>
+
+        <section class="links-container">
+            <a href="#" class="link-button">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+            <a href="#" class="link-button">
+                <i class="fab fa-youtube"></i>
+                <span>YouTube</span>
+            </a>
+            <a href="#" class="link-button">
+                <i class="fab fa-tiktok"></i>
+                <span>TikTok</span>
+            </a>
+            <a href="#" class="link-button">
+                <i class="fas fa-donate"></i>
+                <span>Saweria</span>
+            </a>
+            <a href="#" class="link-button">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+        </section>
+
+        <section class="gallery">
+            <h2>My Recent Videos</h2>
+            <div class="gallery-grid">
+                <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Thumbnail Video 1">
+                <img src="https://img.youtube.com/vi/3JZ_D3ELwOQ/maxresdefault.jpg" alt="Thumbnail Video 2">
+                <img src="https://img.youtube.com/vi/5qap5aO4i9A/maxresdefault.jpg" alt="Thumbnail Video 3">
+                <img src="https://img.youtube.com/vi/L_jWHffIx5E/maxresdefault.jpg" alt="Thumbnail Video 4">
             </div>
-        </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Lio. All Rights Reserved.</p>
+        </footer>
+
     </div>
 
 </body>
