@@ -141,19 +141,23 @@
             /* Background oranye ringan untuk container foto, mirip Canva */
             background: linear-gradient(135deg, rgba(255, 140, 0, 0.2), rgba(255, 165, 0, 0.1)); /* Oranye transparan */
             padding: 20px;
-            border-radius: 50%; /* Container bulat juga untuk efek integrated */
+            border-radius: 50% 50% 0 0; /* Container ikut 3/4 lingkaran untuk efek cut-off */
             border: 3px solid #FFA500; /* Border oranye tipis */
             box-shadow: 0 5px 20px rgba(255, 165, 0, 0.3); /* Shadow oranye lembut */
             transition: transform 0.3s;
+            position: relative;
+            overflow: hidden; /* Pastikan potongan rapi */
         }
         .about-image:hover {
             transform: scale(1.02); /* Lively effect pada container */
         }
         .profile-img {
-            width: 300px; /* Fixed size untuk bulat sempurna */
+            width: 300px; /* Fixed square untuk anti-gepeng */
             height: 300px;
-            border-radius: 50%; /* Bulat penuh (circle) */
-            object-fit: cover; /* Crop otomatis agar gak distorted */
+            border-radius: 50% 50% 0 0; /* 3/4 lingkaran: Bulat atas & kiri bawah, potong kanan bawah */
+            object-fit: cover; /* Crop center tanpa stretch/gepeng */
+            object-position: center; /* Fokus tengah (adjust ke 'center top' jika wajah di atas) */
+            display: block;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Shadow dalam untuk pop */
         }
         /* Projects Grid mirip Canva: 3-column grid dengan card */
@@ -279,8 +283,8 @@
                 <p>Saya tinggal di Indonesia dan telah bekerja pada berbagai proyek, mulai dari branding startup hingga website e-commerce. Mari berkolaborasi untuk mewujudkan ide-ide hebatmu!</p>
             </div>
             <div class="about-image">
-                <img src="https://via.placeholder.com/300x300/FF8C00/FFFFFF?text=Profil+Kamu" alt="Foto Profil" class="profile-img">
-                <!-- Ganti src dengan URL foto aslimu (persegi ideal: 300x300px atau lebih) -->
+                <img src="https://via.placeholder.com/300x300/FF8C00/FFFFFF?text=Profil+Square" alt="Foto Profil" class="profile-img">
+                <!-- Ganti src dengan URL foto aslimu yang SQUARE (misalnya 400x400px) dari ImgBB -->
             </div>
         </div>
     </section>
@@ -327,7 +331,7 @@
     </footer>
 
     <script>
-        // Smooth scroll untuk navigasi, mirip interaksi Canva
+        // Smooth scroll untuk navigasi, mirip interaksi Canva (FIXED: Hapus double 'query')
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -338,9 +342,9 @@
             });
         });
 
-        // Tambah scroll effect untuk nav (opsional, agar lebih lively)
+        // Tambah scroll effect untuk nav (opsional, agar lebih lively) - FIXED
         window.addEventListener('scroll', () => {
-            const nav = document.query.querySelector('nav');
+            const nav = document.querySelector('nav');
             if (window.scrollY > 100) {
                 nav.style.background = 'rgba(255, 165, 0, 0.95)';
             } else {
