@@ -3,182 +3,315 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ItsLiyd - The Content Creator</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap" rel="stylesheet">
-    
+    <title>Portofolio Saya - Desainer Kreatif</title>
     <style>
-        /* === Variabel Warna === */
-        :root {
-            --peach-utama: #FFDDAA;  /* Peach lembut */
-            --peach-aksen: #FFF5E5;  /* Latar Belakang - Warna Peach di Screenshot */
-            --teks-gelap: #4A4A4A;   /* Abu-abu gelap */
-            --latar-terang: #FFFFFF; /* Putih */
-            --hijau-muda: #B8E09D;   /* Aksen Hijau */
-            --biru-langit: #A0D8F0;  /* Aksen Biru */
-        }
-
-        /* === Pengaturan Dasar === */
-        body {
-            font-family: 'Poppins', sans-serif;
+        /* CSS mirip Canva: Clean, modern, dengan oranye dominan dan animasi lively */
+        * {
             margin: 0;
             padding: 0;
-            background-color: var(--peach-aksen); /* Warna ini yang Anda lihat */
-            color: var(--teks-gelap);
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #FF8C00, #FFA500, #FF4500); /* Gradien oranye utama */
+            color: #333;
             line-height: 1.6;
+            overflow-x: hidden;
         }
-
-        /* === Konten Utama === */
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* === Header / Intro Section (Bagian Paling Atas) === */
-        .header-intro {
-            text-align: center;
-            padding: 40px 0;
-            background-color: var(--peach-utama);
-            /* Kurva di bawah */
-            border-radius: 0 0 50px 50px; 
-            margin-bottom: 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Gaya Ilustrasi Lingkaran */
-        .header-intro .ilustrasi {
-            width: 180px; 
-            height: 180px; 
-            margin: 0 auto 15px;
-            background-color: var(--biru-langit); 
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            color: var(--latar-terang);
-            font-weight: 800;
-            border: 10px solid var(--latar-terang); 
-            box-shadow: 0 0 0 5px var(--hijau-muda); 
-        }
-
-        .header-intro h1 {
-            font-size: 2.5rem;
-            margin: 5px 0 0;
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-
-        .header-intro p {
-            font-size: 1.1rem;
-            color: var(--teks-gelap);
-            font-weight: 600;
-        }
-        
-        /* === Section Konten === */
-        .content-section {
-            background-color: var(--latar-terang);
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        }
-        
-        .content-section h2 {
-            color: var(--teks-gelap);
-            font-size: 1.8rem;
-            border-bottom: 3px solid var(--peach-utama);
-            padding-bottom: 10px;
-            margin-top: 0;
-            font-weight: 800;
-        }
-
-        /* === Gaya Link & Tombol === */
-        .link-list {
+        /* Hero Section mirip Canva: Full-width, centered, dengan nama besar */
+        .hero {
+            height: 100vh;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            padding: 0;
-            list-style: none;
-        }
-
-        .link-list a {
-            display: block;
-            background-color: var(--peach-utama);
-            color: var(--teks-gelap);
-            padding: 15px 20px;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 1.1rem;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            box-shadow: 0 3px 0 var(--teks-gelap); 
-            transition: all 0.1s ease;
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.8), rgba(255, 165, 0, 0.9)); /* Oranye transparan */
+            color: white;
+            padding: 0 20px;
+            animation: fadeIn 1.5s ease-out;
         }
-
-        .link-list a:hover {
-            background-color: var(--hijau-muda); 
-            transform: translateY(2px); 
-            box-shadow: 0 1px 0 var(--teks-gelap);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        /* === Footer === */
+        .hero h1 {
+            font-size: 4em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: slideInUp 1s ease-out 0.5s both;
+        }
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        .cta-button {
+            background: #FF4500; /* Oranye gelap untuk tombol */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s; /* Lively hover */
+            text-decoration: none;
+            display: inline-block;
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        /* Navigation sederhana, mirip Canva (sticky jika perlu) */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 165, 0, 0.9);
+            padding: 15px 0;
+            text-align: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #FFD700; /* Emas untuk aksen */
+        }
+        /* Sections mirip Canva: Max-width, centered, dengan padding */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95); /* Putih transparan untuk kontras */
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h2 {
+            color: #FF6600; /* Oranye untuk heading */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            border-bottom: 4px solid #FFA500;
+            padding-bottom: 15px;
+        }
+        /* About Section mirip Canva: Teks + foto placeholder */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        .about-image:hover img {
+            transform: scale(1.02); /* Lively effect */
+        }
+        /* Projects Grid mirip Canva: 3-column grid dengan card */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        .project-card {
+            background: linear-gradient(45deg, #FF8C00, #FF4500); /* Gradien oranye */
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        .project-card:hover::before {
+            left: 100%; /* Shimmer effect untuk rame */
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .project-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        /* Contact Section mirip Canva: Sederhana dengan form placeholder */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contact-content p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        .contact-links a {
+            color: #FF6600;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        .contact-links a:hover {
+            color: #FF4500;
+        }
+        /* Footer mirip Canva: Minimal di bawah */
         footer {
+            background: #FF4500;
+            color: white;
             text-align: center;
             padding: 20px;
-            color: var(--teks-gelap);
-            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+        /* Responsif seperti Canva */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5em; }
+            .hero p { font-size: 1.2em; }
+            .about-content { flex-direction: column; text-align: center; }
+            .projects-grid { grid-template-columns: 1fr; }
+            nav a { margin: 0 10px; font-size: 0.9em; }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#about">Tentang</a>
+        <a href="#projects">Proyek</a>
+        <a href="#contact">Kontak</a>
+    </nav>
 
-    <div class="header-intro">
-        <div class="ilustrasi">
-            Lio
+    <!-- Hero Section mirip Canva -->
+    <section class="hero">
+        <h1>Nama Kamu</h1>
+        <p>Desainer Kreatif & Developer Web | Membuat Desain yang Energik dan Lively dengan Sentuhan Oranye</p>
+        <a href="#about" class="cta-button">Pelajari Lebih Lanjut</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>Tentang Saya</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Halo! Saya adalah seorang desainer grafis dan developer web yang passionate dengan kreasi digital. Dengan pengalaman lebih dari 3 tahun, saya suka membuat desain yang vibrant, user-friendly, dan penuh energi. Warna oranye adalah favorit saya karena memberikan kesan hangat, kreatif, dan lively – seperti semangat yang tak pernah padam!</p>
+                <p>Saya tinggal di Indonesia dan telah bekerja pada berbagai proyek, mulai dari branding startup hingga website e-commerce. Mari berkolaborasi untuk mewujudkan ide-ide hebatmu!</p>
+            </div>
+            <div class="about-image">
+                <img src="https://via.placeholder.com/400x500/FF8C00/FFFFFF?text=Foto+Profil+Kamu" alt="Foto Profil">
+                <!-- Ganti src dengan URL foto aslimu, misalnya dari Unsplash atau upload ke ImgBB -->
+            </div>
         </div>
-        <h1>ITS LIYD</h1>
-        <p>Content Creator & Pesatir-Handalz | OTW 100K Subs! 🚀</p>
-    </div>
+    </section>
 
-    <div class="container">
-
-        <div class="content-section">
-            <h2>👋 About Me</h2>
-            <p>
-                Hai guys! Kenalin nama gue **Lio**, yang kalian kenal sebagai ItsLiyd atau Pesatir-Handalz. Saya fokus membuat konten menarik di **YouTube** dan saat ini sangat bersemangat untuk mencapai 100k subscriber.
-            </p>
-            <p>
-                Saya menyukai proses *scripting*, *editing*, dan berinteraksi dengan komunitas. Tujuan saya adalah memberikan konten yang menghibur dan informatif.
-            </p>
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Proyek Saya</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="https://via.placeholder.com/350x200/FFA500/FFFFFF?text=Website+E-Commerce" alt="Proyek 1">
+                <h3>Website E-Commerce</h3>
+                <p>Desain modern untuk toko online dengan fitur responsif. Menggunakan HTML, CSS, JS, dan integrasi payment gateway. Fokus pada UX yang fun dan cepat.</p>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/350x200/FF8C00/FFFFFF?text=Logo+Branding" alt="Proyek 2">
+                <h3>Logo Branding</h3>
+                <p>Seri logo untuk startup lokal, dominan warna oranye untuk kesan energik dan profesional. Dibuat dengan Adobe Illustrator.</p>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/350x200/FF4500/FFFFFF?text=Aplikasi+Mobile" alt="Proyek 3">
+                <h3>Aplikasi Mobile</h3>
+                <p>UI/UX design untuk app fitness tracker, dengan animasi interaktif yang lively. Dikembangkan menggunakan Figma dan React Native.</p>
+            </div>
+            <!-- Tambah card lain jika perlu, seperti di Canva -->
         </div>
-        
-        <div class="content-section">
-            <h2>🔗 Terhubung dengan ItsLiyd</h2>
-            
-            <ul class="link-list">
-                <li><a href="[LINK YOUTUBE ANDA]" target="_blank">📺 Channel YouTube Utama (OTW 100K!)</a></li>
-                <li><a href="[LINK INSTAGRAM ANDA]" target="_blank">📸 Follow di Instagram</a></li>
-                <li><a href="[LINK TIKTOK ANDA]" target="_blank">🎵 Tonton Konten Pendek di TikTok</a></li>
-                <li><a href="mailto:[EMAIL BISNIS ANDA]" target="_blank">📧 Hubungi untuk Kerjasama Bisnis</a></li>
-            </ul>
-        </div>
+    </section>
 
-        <div class="content-section">
-            <h2>💡 Kegiatan Lain</h2>
-            <ul>
-                <li>Mengembangkan keahlian dalam video editing (Adobe Premiere Pro & CapCut).</li>
-                <li>Mempelajari dasar-dasar web development (HTML/CSS) untuk branding.</li>
-                <li>Gaming [Sebutkan Game Favorit] secara kasual.</li>
-            </ul>
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Kontak Saya</h2>
+        <div class="contact-content">
+            <p>Saya siap mendengar ide proyekmu! Kirim pesan untuk diskusi lebih lanjut.</p>
+            <p>Email: nama@email.com</p>
+            <div class="contact-links">
+                <a href="#">LinkedIn: linkedin.com/in/namaku</a>
+                <a href="#">Instagram: @namaku_design</a>
+                <a href="#">Behance: behance.net/namaku</a>
+            </div>
+            <!-- Bisa tambah form kontak sederhana jika mau, tapi ini placeholder -->
         </div>
-        
-    </div>
+    </section>
 
+    <!-- Footer -->
     <footer>
-        <p>ItsLiyd - Dibuat dengan semangat konten ceria. | &copy; 2025</p>
+        <p>&copy; 2023 Portofolio Saya. Dibuat dengan ❤️, Kreativitas, dan Warna Oranye Lively!</p>
     </footer>
 
+    <script>
+        // Smooth scroll untuk navigasi, mirip interaksi Canva
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Tambah scroll effect untuk nav (opsional, agar lebih lively)
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 165, 0, 0.95)';
+            } else {
+                nav.style.background = 'rgba(255, 165, 0, 0.9)';
+            }
+        });
+    </script>
 </body>
 </html>
