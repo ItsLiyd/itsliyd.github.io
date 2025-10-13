@@ -120,10 +120,10 @@
             border-bottom: 4px solid #FFA500;
             padding-bottom: 15px;
         }
-        /* About Section mirip Canva: Teks + foto square 1:1 mentok kanan */
+        /* About Section mirip Canva: Teks + foto full original mentok kanan */
         .about-content {
             display: flex;
-            align-items: center;
+            align-items: flex-start; /* Align top biar tinggi gambar gak ganggu teks */
             gap: 40px;
             flex-wrap: wrap;
         }
@@ -140,21 +140,21 @@
             text-align: right; /* Align kanan untuk gambar */
             margin-left: auto; /* Push gambar mentok ke kanan */
             /* Plain tanpa background oranye, border, atau padding tambahan */
-            background: none; /* Hilangkan oranye */
-            padding: 0; /* Hilangkan padding */
-            border: none; /* Hilangkan border */
-            border-radius: 0; /* Hilangkan rounded */
-            box-shadow: none; /* Hilangkan shadow oranye */
-            transition: none; /* Hilangkan hover effect jika gak perlu */
+            background: none;
+            padding: 0;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            transition: none;
         }
         .profile-img {
-            width: 300px; /* Square 1:1 - lebar fixed */
-            height: 300px; /* Tinggi sama dengan lebar */
-            object-fit: contain; /* Full gambar tanpa crop, scale proporsional, centered di square */
-            object-position: center; /* Centered di dalam square */
+            width: 300px; /* Lebar fixed, tapi tinggi auto biar proporsional */
+            max-width: 100%; /* Responsif di mobile */
+            height: auto; /* Tinggi ikut aspek rasio asli - gak fixed square */
+            object-fit: none; /* Full original tanpa crop, zoom, atau scale paksa */
+            object-position: unset; /* Gak ada positioning khusus */
             display: block;
-            background-color: rgba(255, 255, 255, 0.8); /* Background putih transparan untuk ruang kosong jika gambar gak square */
-            /* Gak ada border-radius atau shadow tambahan */
+            /* Gak ada background tambahan atau shadow */
         }
         /* Projects Grid mirip Canva: 3-column grid dengan card */
         .projects-grid {
@@ -239,14 +239,15 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5em; }
             .hero p { font-size: 1.2em; }
-            .about-content { flex-direction: column; text-align: center; }
+            .about-content { flex-direction: column; text-align: center; align-items: center; }
             .about-image { 
-                margin-left: 0; /* Di mobile, centered, gak mentok kanan */
+                margin-left: 0; /* Di mobile, centered */
                 text-align: center; 
+                order: 2; /* Gambar di bawah teks */
             }
             .profile-img { 
-                width: 250px; /* Square lebih kecil di mobile */
-                height: 250px;
+                width: 250px; /* Lebih kecil di mobile, height auto */
+                height: auto;
             }
             .projects-grid { grid-template-columns: 1fr; }
             nav a { margin: 0 10px; font-size: 0.9em; }
@@ -278,8 +279,8 @@
                 <p>Saya tinggal di Indonesia dan telah bekerja pada berbagai proyek, mulai dari branding startup hingga website e-commerce. Mari berkolaborasi untuk mewujudkan ide-ide hebatmu!</p>
             </div>
             <div class="about-image">
-                <img src="https://ibb.co.com/ymd5Mvgs" alt="Foto Profil" class="profile-img" onerror="this.src='https://via.placeholder.com/300x300/FF8C00/FFFFFF?text=Foto+Error'">
-                <!-- GANTI INI DENGAN URL FOTO ASLIMU: <img src="https://i.ibb.co/abc123/foto-saya.jpg" alt="Foto Profil" class="profile-img"> -->
+                <img src="https://ibb.co.com/ymd5Mvgs" alt="Foto Profil" class="profile-img" onerror="this.src='https://via.placeholder.com/300x400/FF8C00/FFFFFF?text=Foto+Error'">
+                <!-- GANTI INI DENGAN URL FOTO ASLIMU: Contoh <img src="https://i.ibb.co/abc123/foto-saya.jpg" ...> – tampil full original tanpa crop/zoom -->
             </div>
         </div>
     </section>
@@ -294,4 +295,36 @@
                 <p>Desain modern untuk toko online dengan fitur responsif. Menggunakan HTML, CSS, JS, dan integrasi payment gateway. Fokus pada UX yang fun dan cepat.</p>
             </div>
             <div class="project-card">
-                <img src="https://via.placeholder.com/350x200/FF8
+                <img src="https://via.placeholder.com/350x200/FF8C00/FFFFFF?text=Logo+Branding" alt="Proyek 2">
+                <h3>Logo Branding</h3>
+                <p>Seri logo untuk startup lokal, dominan warna oranye untuk kesan energik dan profesional. Dibuat dengan Adobe Illustrator.</p>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/350x200/FF4500/FFFFFF?text=Aplikasi+Mobile" alt="Proyek 3">
+                <h3>Aplikasi Mobile</h3>
+                <p>UI/UX design untuk app fitness tracker, dengan animasi interaktif yang lively. Dikembangkan menggunakan Figma dan React Native.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Kontak Saya</h2>
+        <div class="contact-content">
+            <p>Saya siap mendengar ide proyekmu! Kirim pesan untuk diskusi lebih lanjut.</p>
+            <p>Email: nama@email.com</p>
+            <div class="contact-links">
+                <a href="#">LinkedIn: linkedin.com/in/namaku</a>
+                <a href="#">Instagram: @namaku_design</a>
+                <a href="#">Behance: behance.net/namaku</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Portofolio Saya. Dibuat dengan ❤️, Kreativitas, dan Warna Oranye Lively!</p>
+    </footer>
+
+    <script>
+        // Smooth
