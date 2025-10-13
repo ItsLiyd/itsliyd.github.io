@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tentang Gw - ItsLiyd</title>
+    <title>Portofolio Saya - Desainer Kreatif</title>
+    
+    <!-- Google Fonts: Paket 1 - Fredoka One (heading kartun) + Patrick Hand (body santai) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Patrick+Hand&display=swap" rel="stylesheet">
+    
     <style>
         /* CSS mirip Canva: Clean, modern, dengan oranye dominan dan animasi lively */
         * {
@@ -12,7 +18,7 @@
             box-sizing: border-box;
         }
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Patrick Hand', 'Arial', cursive;  /* Body: Santai handwritten */
             background: linear-gradient(135deg, #FF8C00, #FFA500, #FF4500); /* Gradien oranye utama */
             color: #333;
             line-height: 1.6;
@@ -36,6 +42,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
         .hero h1 {
+            font-family: 'Fredoka One', 'Arial', sans-serif;  /* Heading: Kartun bubbly */
             font-size: 4em;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
@@ -61,6 +68,7 @@
             transition: transform 0.3s, box-shadow 0.3s; /* Lively hover */
             text-decoration: none;
             display: inline-block;
+            font-family: 'Patrick Hand', 'Arial', cursive;  /* Tombol santai */
         }
         .cta-button:hover {
             transform: scale(1.05);
@@ -83,6 +91,7 @@
             margin: 0 20px;
             font-weight: bold;
             transition: color 0.3s;
+            font-family: 'Patrick Hand', 'Arial', cursive;  /* Nav santai */
         }
         nav a:hover {
             color: #FFD700; /* Emas untuk aksen */
@@ -103,6 +112,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
         h2 {
+            font-family: 'Fredoka One', 'Arial', sans-serif;  /* Heading section: Kartun */
             color: #FF6600; /* Oranye untuk heading */
             text-align: center;
             font-size: 2.5em;
@@ -121,20 +131,30 @@
             flex: 1;
             min-width: 300px;
         }
+        .about-text p {
+            font-family: 'Patrick Hand', 'Arial', cursive;  /* Teks santai */
+        }
         .about-image {
             flex: 1;
             min-width: 300px;
             text-align: center;
-        }
-        .about-image img {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            /* Background oranye ringan untuk container foto, mirip Canva */
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.2), rgba(255, 165, 0, 0.1)); /* Oranye transparan */
+            padding: 20px;
+            border-radius: 50%; /* Container bulat juga untuk efek integrated */
+            border: 3px solid #FFA500; /* Border oranye tipis */
+            box-shadow: 0 5px 20px rgba(255, 165, 0, 0.3); /* Shadow oranye lembut */
             transition: transform 0.3s;
         }
-        .about-image:hover img {
-            transform: scale(1.02); /* Lively effect */
+        .about-image:hover {
+            transform: scale(1.02); /* Lively effect pada container */
+        }
+        .profile-img {
+            width: 300px; /* Fixed size untuk bulat sempurna */
+            height: 300px;
+            border-radius: 50%; /* Bulat penuh (circle) */
+            object-fit: cover; /* Crop otomatis agar gak distorted */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Shadow dalam untuk pop */
         }
         /* Projects Grid mirip Canva: 3-column grid dengan card */
         .projects-grid {
@@ -178,8 +198,12 @@
             margin-bottom: 20px;
         }
         .project-card h3 {
+            font-family: 'Fredoka One', 'Arial', sans-serif;  /* Heading card: Kartun */
             font-size: 1.5em;
             margin-bottom: 10px;
+        }
+        .project-card p {
+            font-family: 'Patrick Hand', 'Arial', cursive;  /* Body card: Santai */
         }
         /* Contact Section mirip Canva: Sederhana dengan form placeholder */
         .contact-content {
@@ -188,6 +212,7 @@
             margin: 0 auto;
         }
         .contact-content p {
+            font-family: 'Patrick Hand', 'Arial', cursive;  /* Teks santai */
             font-size: 1.2em;
             margin-bottom: 20px;
         }
@@ -196,6 +221,7 @@
             text-decoration: none;
             margin: 0 15px;
             font-weight: bold;
+            font-family: 'Patrick Hand', 'Arial', cursive;
         }
         .contact-links a:hover {
             color: #FF4500;
@@ -207,14 +233,25 @@
             text-align: center;
             padding: 20px;
             margin-top: 40px;
+            font-family: 'Patrick Hand', 'Arial', cursive;  /* Footer santai */
         }
         /* Responsif seperti Canva */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5em; }
             .hero p { font-size: 1.2em; }
             .about-content { flex-direction: column; text-align: center; }
+            .about-image { 
+                width: 250px; 
+                height: 250px; 
+                margin: 0 auto; 
+            }
+            .profile-img { 
+                width: 250px; 
+                height: 250px; 
+            }
             .projects-grid { grid-template-columns: 1fr; }
             nav a { margin: 0 10px; font-size: 0.9em; }
+            h2 { font-size: 2em; }  /* Kecilkan heading di mobile untuk readability */
         }
     </style>
 </head>
@@ -228,8 +265,8 @@
 
     <!-- Hero Section mirip Canva -->
     <section class="hero">
-        <h1>AURELLIO</h1>
-        <p>Developer TawBot | Bot Private Liyd Comunity</p>
+        <h1>Nama Kamu</h1>
+        <p>Desainer Kreatif & Developer Web | Membuat Desain yang Energik dan Lively dengan Sentuhan Oranye</p>
         <a href="#about" class="cta-button">Pelajari Lebih Lanjut</a>
     </section>
 
@@ -242,8 +279,8 @@
                 <p>Saya tinggal di Indonesia dan telah bekerja pada berbagai proyek, mulai dari branding startup hingga website e-commerce. Mari berkolaborasi untuk mewujudkan ide-ide hebatmu!</p>
             </div>
             <div class="about-image">
-                <img src="https://via.placeholder.com/400x500/FF8C00/FFFFFF?text=Foto+Profil+Kamu" alt="Foto Profil">
-                <!-- Ganti src dengan URL foto aslimu, misalnya dari Unsplash atau upload ke ImgBB -->
+                <img src="https://via.placeholder.com/300x300/FF8C00/FFFFFF?text=Profil+Kamu" alt="Foto Profil" class="profile-img">
+                <!-- Ganti src dengan URL foto aslimu (persegi ideal: 300x300px atau lebih) -->
             </div>
         </div>
     </section>
@@ -267,7 +304,6 @@
                 <h3>Aplikasi Mobile</h3>
                 <p>UI/UX design untuk app fitness tracker, dengan animasi interaktif yang lively. Dikembangkan menggunakan Figma dan React Native.</p>
             </div>
-            <!-- Tambah card lain jika perlu, seperti di Canva -->
         </div>
     </section>
 
@@ -282,7 +318,6 @@
                 <a href="#">Instagram: @namaku_design</a>
                 <a href="#">Behance: behance.net/namaku</a>
             </div>
-            <!-- Bisa tambah form kontak sederhana jika mau, tapi ini placeholder -->
         </div>
     </section>
 
@@ -305,7 +340,7 @@
 
         // Tambah scroll effect untuk nav (opsional, agar lebih lively)
         window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
+            const nav = document.query.querySelector('nav');
             if (window.scrollY > 100) {
                 nav.style.background = 'rgba(255, 165, 0, 0.95)';
             } else {
