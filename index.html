@@ -120,7 +120,7 @@
             border-bottom: 4px solid #FFA500;
             padding-bottom: 15px;
         }
-        /* About Section mirip Canva: Teks + foto placeholder */
+        /* About Section mirip Canva: Teks + foto mentok kanan */
         .about-content {
             display: flex;
             align-items: center;
@@ -137,28 +137,23 @@
         .about-image {
             flex: 1;
             min-width: 300px;
-            text-align: center;
-            /* Background oranye ringan untuk container foto, mirip Canva */
-            background: linear-gradient(135deg, rgba(255, 140, 0, 0.2), rgba(255, 165, 0, 0.1)); /* Oranye transparan */
-            padding: 20px;
-            border-radius: 50% 50% 0 0; /* Container ikut 3/4 lingkaran untuk efek cut-off */
-            border: 3px solid #FFA500; /* Border oranye tipis */
-            box-shadow: 0 5px 20px rgba(255, 165, 0, 0.3); /* Shadow oranye lembut */
-            transition: transform 0.3s;
-            position: relative;
-            overflow: hidden; /* Pastikan potongan rapi */
-        }
-        .about-image:hover {
-            transform: scale(1.02); /* Lively effect pada container */
+            text-align: right; /* Align kanan untuk gambar */
+            margin-left: auto; /* Push gambar mentok ke kanan */
+            /* Plain tanpa background oranye, border, atau padding tambahan */
+            background: none; /* Hilangkan oranye */
+            padding: 0; /* Hilangkan padding */
+            border: none; /* Hilangkan border */
+            border-radius: 0; /* Hilangkan rounded */
+            box-shadow: none; /* Hilangkan shadow oranye */
+            transition: none; /* Hilangkan hover effect jika gak perlu */
         }
         .profile-img {
-            width: 300px; /* Fixed square untuk anti-gepeng */
-            height: 300px;
-            border-radius: 50% 50% 0 0; /* 3/4 lingkaran: Bulat atas & kiri bawah, potong kanan bawah */
-            object-fit: cover; /* Crop center tanpa stretch/gepeng */
-            object-position: center; /* Fokus tengah (adjust ke 'center top' jika wajah di atas) */
+            width: 100%; /* Full width container */
+            max-width: 400px; /* Batasi ukuran max biar gak terlalu lebar */
+            height: auto; /* Proporsional tanpa fixed height */
+            object-fit: none; /* Tampil full tanpa crop atau stretch */
             display: block;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Shadow dalam untuk pop */
+            /* Gak ada border-radius atau shadow tambahan */
         }
         /* Projects Grid mirip Canva: 3-column grid dengan card */
         .projects-grid {
@@ -245,13 +240,11 @@
             .hero p { font-size: 1.2em; }
             .about-content { flex-direction: column; text-align: center; }
             .about-image { 
-                width: 250px; 
-                height: 250px; 
-                margin: 0 auto; 
+                margin-left: 0; /* Di mobile, centered, gak mentok kanan */
+                text-align: center; 
             }
             .profile-img { 
-                width: 250px; 
-                height: 250px; 
+                max-width: 100%; /* Full di mobile */
             }
             .projects-grid { grid-template-columns: 1fr; }
             nav a { margin: 0 10px; font-size: 0.9em; }
@@ -283,8 +276,8 @@
                 <p>Saya tinggal di Indonesia dan telah bekerja pada berbagai proyek, mulai dari branding startup hingga website e-commerce. Mari berkolaborasi untuk mewujudkan ide-ide hebatmu!</p>
             </div>
             <div class="about-image">
-                <img src="https://via.placeholder.com/300x300/FF8C00/FFFFFF?text=Profil+Square" alt="Foto Profil" class="profile-img">
-                <!-- Ganti src dengan URL foto aslimu yang SQUARE (misalnya 400x400px) dari ImgBB -->
+                <img src="https://picsum.photos/400/600?random=2" alt="Foto Profil" class="profile-img">
+                <!-- Ganti src dengan URL foto aslimu (misalnya dari ImgBB: https://i.ibb.co/xxx/foto.jpg) – tampil full tanpa crop -->
             </div>
         </div>
     </section>
@@ -331,7 +324,7 @@
     </footer>
 
     <script>
-        // Smooth scroll untuk navigasi, mirip interaksi Canva (FIXED: Hapus double 'query')
+        // Smooth scroll untuk navigasi, mirip interaksi Canva
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -342,7 +335,7 @@
             });
         });
 
-        // Tambah scroll effect untuk nav (opsional, agar lebih lively) - FIXED
+        // Tambah scroll effect untuk nav (opsional, agar lebih lively)
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
             if (window.scrollY > 100) {
