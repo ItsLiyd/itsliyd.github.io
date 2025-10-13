@@ -11,76 +11,74 @@
         /* Reset dan Pengaturan Dasar */
         body {
             margin: 0;
+            padding: 0;
             font-family: 'Poppins', sans-serif;
             background-color: #FEFDFB; /* Warna latar belakang utama */
             color: #444;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             min-height: 100vh;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Mencegah scroll horizontal */
         }
 
-        /* Kontainer Utama */
+        /* Kontainer Utama - menjadi dasar untuk positioning */
         .main-container {
             width: 100%;
-            max-width: 1200px;
-            position: relative;
-            padding: 40px;
+            max-width: 1100px; /* Sedikit diperkecil untuk layout yang lebih rapat */
+            margin: auto;
+            position: relative; /* Penting untuk positioning elemen anak */
+            min-height: 550px; /* Memberi ruang agar elemen tidak terpotong */
+            padding: 20px;
         }
 
         /* Bentuk Latar Belakang Melengkung */
         .background-shape {
             position: absolute;
             top: 0;
-            left: -5%;
-            right: -5%;
-            height: 500px;
+            left: 0;
+            right: 0;
+            height: 480px;
             background-color: #FFF3E4; /* Warna krem/peach muda */
-            border-bottom-left-radius: 50% 40%;
-            border-bottom-right-radius: 50% 40%;
+            /* Radius disesuaikan untuk menciptakan kurva yang pas */
+            border-bottom-left-radius: 50% 60px;
+            border-bottom-right-radius: 50% 60px;
             z-index: 1;
         }
 
-        /* Konten Wrapper (Teks dan Gambar) */
+        /* Konten Wrapper - sekarang hanya untuk teks */
         .content-wrapper {
             position: relative;
             z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 40px;
-            padding: 50px 0;
+            padding-top: 80px; /* Menurunkan teks sedikit */
         }
 
         /* Area Teks di Sebelah Kiri */
         .text-section {
-            flex: 1;
-            min-width: 300px;
-            max-width: 500px;
+            width: 45%; /* Membatasi lebar teks agar tidak bertabrakan */
+            max-width: 480px;
             padding-left: 20px;
             border-left: 5px solid #F58A4B; /* Garis oranye vertikal */
         }
 
         .text-section .headline {
             font-family: 'Fredoka One', cursive;
-            font-size: 3.5rem; /* Ukuran font "Hello World!" */
+            font-size: 4rem; /* Ukuran font "Hello World!" */
             color: #F58A4B; /* Warna oranye */
-            line-height: 1.2;
+            line-height: 1.1;
             margin: 0;
         }
 
         .text-section .subtitle {
             font-family: 'Fredoka One', cursive;
-            font-size: 1.5rem; /* Ukuran font "IM ITSLIYD!" */
+            font-size: 1.8rem; /* Ukuran font "IM ITSLIYD!" */
             color: #F58A4B;
-            margin: 0 0 30px 0;
+            margin: 5px 0 30px 0;
         }
 
         .text-section .intro-text {
             font-size: 1.1rem;
-            line-height: 1.6;
+            line-height: 1.7;
             color: #8C4D2E; /* Warna coklat tua/maroon */
         }
         
@@ -89,103 +87,68 @@
             transform: rotate(20deg);
         }
 
-        /* Area Ilustrasi Lingkaran di Sebelah Kanan */
+        /* Area Ilustrasi Lingkaran - Menggunakan Absolute Positioning */
         .illustration-section {
-            flex-shrink: 0;
+            position: absolute; /* Kunci untuk penempatan presisi */
+            top: 60px; /* Jarak dari atas container */
+            right: 20px; /* Jarak dari kanan container */
+            z-index: 3; /* Pastikan berada di atas semua elemen lain */
         }
 
         .circle-frame {
-            width: 320px;
-            height: 320px;
-            border: 10px solid #F58A4B; /* Border oranye */
+            width: 350px; /* Sedikit diperbesar sesuai gambar */
+            height: 350px;
+            border: 12px solid #F58A4B; /* Border oranye */
             border-radius: 50%;
             position: relative;
             overflow: hidden;
             background-color: #87CEEB; /* Warna langit */
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
-        /* Komponen Ilustrasi di dalam Lingkaran */
+        /* Komponen Ilustrasi di dalam Lingkaran (tidak berubah) */
         .hill-1 {
-            position: absolute;
-            bottom: -50px;
-            left: -50px;
-            width: 420px;
-            height: 200px;
-            background-color: #6BB663; /* Hijau muda */
-            border-radius: 50%;
+            position: absolute; bottom: -50px; left: -50px; width: 420px; height: 200px;
+            background-color: #6BB663; border-radius: 50%;
         }
-
         .hill-2 {
-            position: absolute;
-            bottom: -80px;
-            right: -80px;
-            width: 400px;
-            height: 200px;
-            background-color: #58A550; /* Hijau lebih tua */
-            border-radius: 50%;
+            position: absolute; bottom: -80px; right: -80px; width: 400px; height: 200px;
+            background-color: #58A550; border-radius: 50%;
         }
-
         .cloud {
-            position: absolute;
-            top: 60px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 40px;
-            background: white;
-            border-radius: 20px;
+            position: absolute; top: 70px; left: 50%; transform: translateX(-50%);
+            width: 120px; height: 40px; background: white; border-radius: 20px;
         }
-        
         .cloud::before, .cloud::after {
-            content: '';
-            position: absolute;
-            background: white;
-            border-radius: 50%;
+            content: ''; position: absolute; background: white; border-radius: 50%;
         }
-
-        .cloud::before {
-            width: 60px;
-            height: 60px;
-            top: -30px;
-            left: 20px;
-        }
-
-        .cloud::after {
-            width: 70px;
-            height: 70px;
-            top: -25px;
-            right: 10px;
-        }
+        .cloud::before { width: 60px; height: 60px; top: -30px; left: 20px; }
+        .cloud::after { width: 70px; height: 70px; top: -25px; right: 10px; }
 
         /* Responsivitas untuk layar kecil */
-        @media (max-width: 768px) {
-            .content-wrapper {
-                flex-direction: column;
-                text-align: center;
+        @media (max-width: 992px) {
+            .main-container { min-height: initial; }
+            .illustration-section {
+                /* Pindahkan ilustrasi ke tengah atas */
+                position: relative;
+                top: 0; right: 0;
+                margin: 0 auto 30px auto;
+                display: block;
             }
-
+            .circle-frame { width: 280px; height: 280px; border-width: 10px; }
+            .content-wrapper { padding-top: 20px; }
             .text-section {
-                border-left: none;
-                border-top: 5px solid #F58A4B;
-                padding-left: 0;
-                padding-top: 20px;
-                max-width: 100%;
+                width: 100%; max-width: 500px; margin: auto; text-align: center;
+                border-left: none; padding-left: 0;
+                border-top: 5px solid #F58A4B; padding-top: 20px;
             }
+            .background-shape { height: 350px; }
+        }
 
-            .text-section .headline {
-                font-size: 2.8rem;
-            }
-
-            .circle-frame {
-                width: 250px;
-                height: 250px;
-            }
-            
-            .background-shape {
-                height: 100%;
-                border-radius: 0;
-            }
+        @media (max-width: 480px) {
+            .text-section .headline { font-size: 3rem; }
+            .text-section .subtitle { font-size: 1.5rem; }
+            .circle-frame { width: 220px; height: 220px; }
         }
     </style>
 </head>
@@ -195,7 +158,6 @@
         <div class="background-shape"></div>
 
         <div class="content-wrapper">
-            
             <div class="text-section">
                 <h1 class="headline">Hello World!</h1>
                 <p class="subtitle">IM ITSLIYD!</p>
@@ -204,15 +166,14 @@
                     Kenalin nama gue Lio, atau lebih akrab dikenal dengan nama panggung ItsLiyd atau Pesatir-Handalz. Gw aktif buat konten di platform Youtube yang saat ini masih otw ke 100k subs
                 </p>
             </div>
+        </div>
 
-            <div class="illustration-section">
-                <div class="circle-frame">
-                    <div class="hill-2"></div>
-                    <div class="hill-1"></div>
-                    <div class="cloud"></div>
-                </div>
+        <div class="illustration-section">
+            <div class="circle-frame">
+                <div class="hill-2"></div>
+                <div class="hill-1"></div>
+                <div class="cloud"></div>
             </div>
-
         </div>
     </div>
 
