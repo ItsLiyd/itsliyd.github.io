@@ -134,27 +134,24 @@
         .about-text p {
             font-family: 'Patrick Hand', 'Arial', cursive;  /* Teks santai */
         }
-        .about-image {
-            flex: 1;
-            min-width: 300px;
-            text-align: right; /* Align kanan untuk gambar */
-            margin-left: auto; /* Push gambar mentok ke kanan */
-            /* Plain tanpa background oranye, border, atau padding tambahan */
-            background: none;
-            padding: 0;
-            border: none;
-            border-radius: 0;
-            box-shadow: none;
-            transition: none;
-        }
-        .profile-img {
-            width: 300px; /* Lebar fixed, tapi tinggi auto biar proporsional */
-            max-width: 100%; /* Responsif di mobile */
-            height: auto; /* Tinggi ikut aspek rasio asli - gak fixed square */
-            object-fit: none; /* Full original tanpa crop, zoom, atau scale paksa */
-            object-position: unset; /* Gak ada positioning khusus */
-            display: block;
-            /* Gak ada background tambahan atau shadow */
+       @media (max-width: 768px) {
+    /* ... kode lain ... */
+    
+    .about-image {  
+        margin-left: 0; /* Di mobile, hilangkan dorongan ke kanan */
+        text-align: center; /* Di mobile, ratakan tengah */
+        order: 2; 
+    }
+    
+    /* PENTING: Timpa lebar gambar untuk mobile */
+    .profile-img { 
+        width: 250px; /* Lebih kecil di mobile */
+        height: auto;
+        /* Tambahan: Pastikan di mobile gambar rata tengah */
+        margin-left: auto; 
+        margin-right: auto;
+    }
+    
         }
         /* Projects Grid mirip Canva: 3-column grid dengan card */
         .projects-grid {
