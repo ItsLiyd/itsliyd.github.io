@@ -16,6 +16,11 @@
             padding: 0;
             box-sizing: border-box;
         }
+        /* FIX: Tambahkan min-height untuk mencegah body 'collapse' */
+        html, body {
+            min-height: 100%; 
+        }
+
         body {
             font-family: 'Patrick Hand', 'Arial', cursive;
             background: linear-gradient(135deg, #FF8C00, #FFA500, #FF4500);
@@ -121,13 +126,13 @@
             padding-top: 0; 
         }
 
-        /* Gambar Profil (Lingkaran Kanan) */
+        /* Gambar Profil (CSS INI TIDAK DIOBATIK-ATIK) */
         .about-image {
             position: static; 
             width: 200px;
             height: 200px;
             flex-shrink: 0;
-            margin-left: auto; /* Posisikan ke kanan */
+            margin-left: auto; 
             overflow: hidden;
             border-radius: 50%;
             border: 5px solid #FFD700;
@@ -151,22 +156,27 @@
             min-width: 300px;
             padding-right: 0; 
         }
-
+        /* PERUBAHAN: Memperbesar ukuran font paragraf perkenalan di desktop */
+        .about-text p {
+            font-size: 1.4em; 
+            margin-bottom: 20px;
+        }
+        
         /* ------------------------------------------------ */
-        /* INFO LIST & GARIS TIMELINE FIX (Definitif) */
+        /* INFO LIST & GARIS TIMELINE FIX (Stabil) */
         /* ------------------------------------------------ */
 
         .info-list {
             margin-top: 20px;
             position: relative;
-            padding-left: 40px; /* PENTING: Beri padding agar garis timeline terlihat */
+            padding-left: 50px; /* Jarak yang lebih jauh untuk garis dan ikon */
         }
 
         /* GARIS TIMELINE VERTICAL */
         .info-list::after {
             content: '';
             position: absolute;
-            left: 20px; /* Posisikan garis di 20px dari kiri info-list */
+            left: 20px; /* Posisi garis stabil */
             top: 0;
             bottom: 0;
             width: 3px;
@@ -184,23 +194,22 @@
             transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
             overflow: hidden;
-            margin-left: -20px; /* Geser item sedikit ke kiri untuk mendekati garis */
         }
 
-        /* IKON (Lingkaran di garis) */
+        /* IKON (Bulatan di garis) - Menggunakan metode lama yang lebih stabil */
         .info-icon {
             font-size: 2em;
-            margin-right: 15px;
             flex-shrink: 0;
             position: absolute; 
-            left: -35px; /* Posisikan di kiri item, agar menutupi garis vertikal */
+            left: -10px; /* Posisikan ikon agar sedikit menutupi garis */
             z-index: 5;
+            /* Lingkaran Putih Penutup Garis */
             width: 40px; 
             height: 40px;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: white; /* Lingkaran putih di sekitar ikon untuk menutupi garis */
+            background: white; 
             border-radius: 50%;
             border: 3px solid #FF8C00;
         }
@@ -295,13 +304,19 @@
                 text-align: left;
             }
             
+            /* PENTING: Kembalikan ukuran teks ke normal di mobile */
+            .about-text p {
+                font-size: 1em; 
+            }
+            
             .info-list {
                 padding-left: 0; 
             }
-            .info-list::after { display: none; } /* Sembunyikan garis */
+            .info-list::after { display: none; }
             .info-item {
                 margin-left: 0; 
             }
+            /* Ikon mobile: kembali ke mode inline */
             .info-icon {
                 position: static; 
                 width: auto;
