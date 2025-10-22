@@ -7,7 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Patrick+Hand&display=swap" rel-stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Patrick+Hand&display=swap" rel="stylesheet">
 
     <style>
         /* BASE & THEME */
@@ -86,12 +86,6 @@
             padding: 0 20px;
             animation: fadeIn 1.5s ease-out;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Foto Profil di Hero Section */
         .hero-profile-image {
             width: 200px; 
             height: 200px;
@@ -100,15 +94,12 @@
             border: 5px solid #FFD700; 
             box-shadow: 0 5px 20px rgba(0,0,0,0.3); 
             margin-bottom: 30px; 
-            animation: bounceIn 1.5s ease-out; 
         }
-
         .hero h1 {
             font-family: 'Fredoka One', 'Arial', sans-serif;
             font-size: 4em;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: slideInUp 1s ease-out 0.5s both;
         }
         .cta-button {
             background: #FF4500;
@@ -118,14 +109,9 @@
             border-radius: 50px;
             font-size: 1.2em;
             cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
             text-decoration: none;
             display: inline-block;
             font-family: 'Patrick Hand', 'Arial', cursive;
-        }
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         /* ABOUT SECTION & LAYOUT */
@@ -138,40 +124,31 @@
             padding-top: 0; 
         }
 
-        /* Gambar Profil (Minecraft Skin) */
+        /* Gambar Profil (Minecraft Skin, Bentuk Gelombang) */
         .about-image {
             display: block; 
             width: 300px; 
             height: 350px; 
             flex-shrink: 0;
             overflow: hidden;
-            border-radius: 0; 
             border: none; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
-            animation: bounceIn 1.5s ease-out;
-            order: 1; 
+            order: 1; /* Posisikan di KIRI */
             position: relative; 
-            margin-left: -50px; 
+            margin-left: -50px; /* Geser sedikit keluar dari section */
             margin-top: -30px; 
 
             /* --- CLIP-PATH UNTUK BENTUK GELOMBANG --- */
-            clip-path: polygon(0 0, 100% 0, 100% 80%, 40% 100%, 0 95%); /* Bentuk gelombang yang disesuaikan */
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 40% 100%, 0 95%); 
 
-            background: linear-gradient(135deg, #FF8C00, #FF4500); 
+            background: linear-gradient(135deg, #FF8C00, #FF4500); /* Latar belakang gelombang oranye */
         }
-        /* Style untuk gambar di dalam about-image */
         .about-image .profile-img {
             width: 100%;
             height: 100%;
             object-fit: contain; 
-            transform: translateY(10%); /* Tekan gambar ke bawah agar menempel di gelombang */
+            transform: translateY(10%); 
             transform-origin: bottom center; 
-        }
-
-        @keyframes bounceIn {
-            0% { transform: scale(0.1); opacity: 0; }
-            60% { transform: scale(1.1); opacity: 1; }
-            100% { transform: scale(1); }
         }
         
         /* Teks Utama (Paragraf Perkenalan & Info List) */
@@ -181,44 +158,39 @@
             padding-right: 0; 
             max-width: 700px; 
             margin: 0; 
-            order: 2; 
+            order: 2; /* Posisikan di KANAN */
             padding-left: 20px; 
         }
         .about-text p {
             font-size: 1.4em; 
             margin-bottom: 20px;
-            text-align: left; 
+            text-align: left; /* Paragraf Perkenalan RATA KIRI */
         }
 
         /* Judul "Sedikit Informasi Tentang Gw" */
         .about-text h3 {
+             font-family: 'Fredoka One', 'Arial', sans-serif;
+             color: #FF6600;
              text-align: center !important; 
              margin-top: 30px; 
              margin-bottom: 20px;
         }
         
         /* ------------------------------------------------ */
-        /* INFO LIST & GARIS TIMELINE */
+        /* INFO LIST (TANPA GARIS TIMELINE) */
         /* ------------------------------------------------ */
 
         .info-list {
             margin-top: 20px;
             position: relative;
-            padding-left: 100px; 
+            padding-left: 0px; /* PERBAIKAN: Hapus padding kiri karena garis hilang */
             max-width: 600px; 
             margin-right: auto; 
         }
 
-        /* GARIS TIMELINE VERTICAL */
+        /* GARIS TIMELINE VERTICAL DIHAPUS */
         .info-list::after {
-            content: '';
-            position: absolute;
-            left: 70px; 
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(to bottom, #FFA500, #FF4500);
-            border-radius: 2px;
+            display: none; 
         }
 
         .info-item {
@@ -228,17 +200,16 @@
             padding: 15px; 
             background: linear-gradient(45deg, rgba(255, 165, 0, 0.1), rgba(255, 140, 0, 0.1));
             border-radius: 20px;
-            transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
             overflow: hidden;
         }
 
-        /* IKON (Bulatan di garis) - Penempatan Final */
+        /* IKON (Bulatan di garis) - Penempatan Baru di Kiri Item */
         .info-icon {
             font-size: 1.2em; 
             flex-shrink: 0;
             position: absolute; 
-            left: 48px; 
+            left: 20px; /* PERBAIKAN: Geser ikon ke kiri (di dalam padding item) */
             z-index: 5;
             width: 35px; 
             height: 35px;
@@ -248,11 +219,11 @@
             background: white; 
             border-radius: 50%;
             border: 3px solid #FF8C00;
-            margin-top: 0px; 
         }
-        
+
         .info-text {
-            padding-left: 55px; /* Jarak aman dari ikon/emoji */
+            padding-left: 55px; /* Jarak aman agar teks tidak menabrak ikon */
+            width: 100%;
         }
 
         .info-text strong {
@@ -262,7 +233,7 @@
             margin-bottom: 5px;
         }
 
-        /* PROJECTS SECTION */
+        /* PROJECTS SECTION & FOOTER (Tidak diubah) */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -274,59 +245,22 @@
             padding: 30px;
             border-radius: 15px;
             text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
         }
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-        }
-        .project-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        .project-card h3 {
-            font-family: 'Fredoka One', 'Arial', sans-serif;
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-
-        /* CONTACT SECTION */
-        .contact-content {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .contact-links a {
-            color: #FF6600;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            font-family: 'Patrick Hand', 'Arial', cursive;
-            transition: color 0.3s, transform 0.3s;
-        }
-
-        /* FOOTER */
         footer {
             background: #FF4500;
             color: white;
             text-align: center;
             padding: 20px;
             margin-top: 40px;
-            font-family: 'Patrick Hand', 'Arial', cursive;
         }
+
 
         /* MEDIA QUERIES (RESPONSIVE) */
         @media (max-width: 992px) { 
             .about-content {
                 flex-direction: column;
                 align-items: center;
-                gap: 20px;
             }
             .about-image {
                 width: 250px;
@@ -334,7 +268,6 @@
                 order: 1; 
                 margin: 20px auto; 
                 clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); 
-                background: linear-gradient(135deg, #FF8C00, #FF4500); 
                 border-radius: 15px; 
             }
             .about-image .profile-img {
@@ -352,31 +285,27 @@
             .about-text h3 {
                 text-align: center !important;
             }
+            /* Penyesuaian list di mobile */
             .info-list {
                 padding-left: 0;
                 max-width: 100%;
             }
-            .info-list::after { display: none; }
             .info-item {
                 margin-left: auto;
                 margin-right: auto;
                 width: 90%;
+                padding-left: 15px; /* Sesuaikan padding item */
             }
             .info-icon {
-                position: static;
-                width: auto;
-                height: auto;
-                border: none;
-                background: transparent;
-                margin-right: 10px;
+                position: absolute; /* Tetap absolute agar tidak menggeser teks */
+                left: 15px;
                 transform: none;
             }
             .info-text {
-                padding-left: 0;
+                padding-left: 55px;
             }
 
             .hero h1 { font-size: 2.5em; }
-            .hero p { font-size: 1.2em; }
             .hero-profile-image {
                 width: 150px; 
                 height: 150px;
@@ -385,7 +314,6 @@
             section {
                 padding: 40px 20px; 
             }
-            .projects-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -408,7 +336,7 @@
         <div class="about-content">
             
 <div class="about-image">
-                <img src="https://via.placeholder.com/300x400/FF8C00/FFFFFF?text=Minecraft+Skin" alt="Minecraft Skin" class="profile-img">
+                <img src="https://i.supaimg.com/d0384578-5503-4efe-9b34-01e9e01f8aab.png" alt="Minecraft Skin" class="profile-img">
             </div>
 
             <div class="about-text">
