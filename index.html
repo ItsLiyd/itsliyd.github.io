@@ -120,7 +120,7 @@
             border-bottom: 4px solid #FFA500;
             padding-bottom: 15px;
         }
-        /* About Section mirip Canva: Teks + foto full original mentok kanan */
+        /* About Section mirip Canva: Teks + foto di kanan, ukuran disesuaikan */
         .about-content {
             display: flex;
             align-items: flex-start; /* Align top biar tinggi gambar gak ganggu teks */
@@ -134,24 +134,34 @@
         .about-text p {
             font-family: 'Patrick Hand', 'Arial', cursive;  /* Teks santai */
         }
-       @media (max-width: 768px) {
-    /* ... kode lain ... */
-    
-    .about-image {  
-        margin-left: 0; /* Di mobile, hilangkan dorongan ke kanan */
-        text-align: center; /* Di mobile, ratakan tengah */
-        order: 2; 
-    }
-    
-    /* PENTING: Timpa lebar gambar untuk mobile */
-    .profile-img { 
-        width: 250px; /* Lebih kecil di mobile */
-        height: auto;
-        /* Tambahan: Pastikan di mobile gambar rata tengah */
-        margin-left: auto; 
-        margin-right: auto;
-    }
-    
+        /* Gambar profil: Di desktop, ukuran disesuaikan agar tidak terlalu besar, tetap di kanan */
+        .profile-img {
+            width: 290px; /* Ukuran disesuaikan untuk desktop: lebih kecil dari asli, tapi proporsional */
+            height: auto; /* Jaga rasio aspek */
+            max-width: 100%; /* Agar responsif jika layar lebih kecil */
+            border-radius: 10px; /* Opsional: Tambah sedikit radius untuk estetika */
+        }
+        /* Responsif untuk mobile */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5em; }
+            .hero p { font-size: 1.2em; }
+            .about-content { 
+                flex-direction: column; 
+                text-align: center; 
+                align-items: center; 
+            }
+            .about-image { 
+                margin-left: 0; /* Di mobile, centered */
+                text-align: center; 
+                order: 2; /* Gambar di bawah teks */
+            }
+            .profile-img { 
+                width: 250px; /* Lebih kecil di mobile, height auto */
+                height: auto;
+            }
+            .projects-grid { grid-template-columns: 1fr; }
+            nav a { margin: 0 10px; font-size: 0.9em; }
+            h2 { font-size: 2em; }  /* Kecilkan heading di mobile untuk readability */
         }
         /* Projects Grid mirip Canva: 3-column grid dengan card */
         .projects-grid {
@@ -232,24 +242,6 @@
             margin-top: 40px;
             font-family: 'Patrick Hand', 'Arial', cursive;  /* Footer santai */
         }
-        /* Responsif seperti Canva */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5em; }
-            .hero p { font-size: 1.2em; }
-            .about-content { flex-direction: column; text-align: center; align-items: center; }
-            .about-image { 
-                margin-left: 0; /* Di mobile, centered */
-                text-align: center; 
-                order: 2; /* Gambar di bawah teks */
-            }
-            .profile-img { 
-                width: 250px; /* Lebih kecil di mobile, height auto */
-                height: auto;
-            }
-            .projects-grid { grid-template-columns: 1fr; }
-            nav a { margin: 0 10px; font-size: 0.9em; }
-            h2 { font-size: 2em; }  /* Kecilkan heading di mobile untuk readability */
-        }
     </style>
 </head>
 <body>
@@ -321,4 +313,6 @@
     </footer>
 
     <script>
-        // Smooth
+    </script>
+</body>
+</html>
