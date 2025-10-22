@@ -29,12 +29,12 @@
             overflow-x: hidden;
         }
         section {
-            padding: 80px 50px; /* PERUBAHAN: Tambah padding horizontal */
-            max-width: 1400px; /* PERUBAHAN: Lebarkan konten */
+            padding: 80px 50px; /* Lebarkan konten */
+            max-width: 1400px; 
             margin: 0 auto 40px;
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px; /* Sedikit lengkungan lebih besar */
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2); /* Bayangan lebih dalam */
+            border-radius: 20px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2); 
             animation: fadeInUp 1s ease-out;
         }
         @keyframes fadeInUp {
@@ -163,7 +163,7 @@
         }
         
         /* ------------------------------------------------ */
-        /* INFO LIST & GARIS TIMELINE FIX (Stabil & Geser Kanan) */
+        /* INFO LIST & GARIS TIMELINE FIX (Stabil) */
         /* ------------------------------------------------ */
 
         .info-list {
@@ -188,7 +188,7 @@
             display: flex;
             align-items: center;
             margin-bottom: 20px;
-            padding: 15px; 
+            padding: 15px; /* KEMBALIKAN padding ke nilai standar */
             background: linear-gradient(45deg, rgba(255, 165, 0, 0.1), rgba(255, 140, 0, 0.1));
             border-radius: 20px;
             transition: transform 0.3s, box-shadow 0.3s;
@@ -196,12 +196,12 @@
             overflow: hidden;
         }
 
-        /* IKON (Bulatan di garis) - FIX EMJOI */
+        /* IKON (Bulatan di garis) - Penempatan Akhir */
         .info-icon {
-            font-size: 1.5em; /* PERUBAHAN: Sedikit perkecil font-size */
+            font-size: 1.2em; 
             flex-shrink: 0;
             position: absolute; 
-            left: 23px; /* PERUBAHAN: Posisikan agar center di garis vertikal (40px) */
+            left: 23px; 
             z-index: 5;
             /* Lingkaran Putih Penutup Garis */
             width: 35px; 
@@ -212,7 +212,12 @@
             background: white; 
             border-radius: 50%;
             border: 3px solid #FF8C00;
-            margin-top: 3px; /* PERUBAHAN: Sedikit geser vertikal */
+            margin-top: 0px; 
+        }
+        
+        /* PERBAIKAN AKHIR: Beri margin kiri pada teks */
+        .info-text {
+            margin-left: 30px; 
         }
 
         .info-text strong {
@@ -329,6 +334,9 @@
                 border: none;
                 background: transparent;
                 margin-right: 10px; 
+            }
+            .info-text {
+                margin-left: 0; /* Hilangkan margin di mobile */
             }
 
             .projects-grid { grid-template-columns: 1fr; }
