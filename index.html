@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Gwejhs 😝</title>
+    <title>Portofolio Gw 😜</title>
     
     <!-- Google Fonts: Paket 1 - Fredoka One (heading kartun) + Patrick Hand (body santai) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,6 +74,10 @@
             transform: scale(1.05);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
+        .cta-button:active {
+            transform: scale(0.95); /* Animasi klik: scale down */
+            transition: transform 0.1s;
+        }
         /* Navigation sederhana, mirip Canva (sticky jika perlu) */
         nav {
             position: fixed;
@@ -90,11 +94,15 @@
             text-decoration: none;
             margin: 0 20px;
             font-weight: bold;
-            transition: color 0.3s;
+            transition: color 0.3s, transform 0.3s;
             font-family: 'Patrick Hand', 'Arial', cursive;  /* Nav santai */
         }
         nav a:hover {
             color: #FFD700; /* Emas untuk aksen */
+        }
+        nav a:active {
+            transform: scale(0.9); /* Animasi klik: scale down */
+            transition: transform 0.1s;
         }
         /* Sections mirip Canva: Max-width, centered, dengan padding */
         section {
@@ -134,6 +142,67 @@
         .about-text p {
             font-family: 'Patrick Hand', 'Arial', cursive;  /* Teks santai */
         }
+        /* Info list: Lebih santai, kurang kotak - gunakan flexbox vertikal dengan ikon emoji dan garis halus */
+        .info-list {
+            margin-top: 20px;
+            position: relative;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: linear-gradient(45deg, rgba(255, 165, 0, 0.1), rgba(255, 140, 0, 0.1)); /* Gradien halus, transparan */
+            border-radius: 20px; /* Lebih bulat, kurang kotak */
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .info-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+        .info-item:hover::before {
+            left: 100%;
+        }
+        .info-item:hover {
+            transform: translateX(10px); /* Geser ke kanan untuk efek santai */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .info-icon {
+            font-size: 2em;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        .info-text {
+            flex: 1;
+        }
+        .info-text strong {
+            font-family: 'Fredoka One', 'Arial', sans-serif;
+            color: #FF6600;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .info-text span {
+            font-family: 'Patrick Hand', 'Arial', cursive;
+        }
+        /* Garis vertikal untuk efek timeline santai */
+        .info-list::after {
+            content: '';
+            position: absolute;
+            left: 30px; /* Sesuai posisi ikon */
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #FFA500, #FF4500);
+            border-radius: 2px;
+        }
         /* Gambar profil: Di desktop, ukuran disesuaikan agar tidak terlalu besar, tetap di kanan */
         .profile-img {
             width: 290px; /* Ukuran disesuaikan untuk desktop: lebih kecil dari asli, tapi proporsional */
@@ -141,7 +210,7 @@
             max-width: 100%; /* Agar responsif jika layar lebih kecil */
             border-radius: 10px; /* Opsional: Tambah sedikit radius untuk estetika */
         }
-        /* Responsif untuk mobile */
+        /* Responsif untuk mobile: Lebih fokus pada vertikal, teks lebih besar, navigasi mudah */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5em; }
             .hero p { font-size: 1.2em; }
@@ -159,9 +228,20 @@
                 width: 250px; /* Lebih kecil di mobile, height auto */
                 height: auto;
             }
+            .info-list::after { display: none; } /* Sembunyikan garis di mobile untuk lebih clean */
+            .info-item {
+                flex-direction: column; /* Ikon di atas teks di mobile */
+                text-align: center;
+                padding: 10px;
+            }
+            .info-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
             .projects-grid { grid-template-columns: 1fr; }
             nav a { margin: 0 10px; font-size: 0.9em; }
             h2 { font-size: 2em; }  /* Kecilkan heading di mobile untuk readability */
+            section { padding: 60px 15px; } /* Kurangi padding di mobile */
         }
         /* Projects Grid mirip Canva: 3-column grid dengan card */
         .projects-grid {
@@ -229,13 +309,18 @@
             margin: 0 15px;
             font-weight: bold;
             font-family: 'Patrick Hand', 'Arial', cursive;
+            transition: color 0.3s, transform 0.3s;
         }
         .contact-links a:hover {
             color: #FF4500;
         }
-        /* Footer mirip Canva: Minimal di bawah */
+        .contact-links a:active {
+            transform: scale(0.9); /* Animasi klik: scale down */
+            transition: transform 0.1s;
+        }
+        /* Footer mirip Canva: Minimal di bawah dengan oranye tua */
         footer {
-            background: #FF4500;
+            background: #FF4500; /* Oranye tua */
             color: white;
             text-align: center;
             padding: 20px;
@@ -318,20 +403,11 @@
             <div class="project-card">
                 <img src="https://via.placeholder.com/350x200/FFA500/FFFFFF?text=Website+E-Commerce" alt="Proyek 1">
                 <h3>Pengembangan TawBot</h3>
-                <p>Proyek terniat dan terambisiusku adalah pengembangan bot discord <strong>TawBot</strong></p>. Ada beberapa fitur yang akan aku tambahkan nanti
+                <p>Proyek terniat dan terambisiusku adalah pengembangan bot discord <strong>TawBot</strong>. Ada beberapa fitur yang akan aku tambahkan nanti, seperti moderasi server, musik, dan game mini.</p>
             </div>
             <div class="project-card">
                 <img src="https://via.placeholder.com/350x200/FF8C00/FFFFFF?text=Logo+Branding" alt="Proyek 2">
-                <h3>Pengembangan Website</h3>
-                <p>Ya ini yang kamu liat. Ini juga lagi gw kembangin :v</p>
-            </div>
-            <div class="project-card">
-                <img src="https://via.placeholder.com/350x200/FF4500/FFFFFF?text=Aplikasi+Mobile" alt="Proyek 3">
-                <h3>Comming Soon</h3>
-                <p>Pria sigma mewing skibidi.</p>
-            </div>
-        </div>
-    </section>
+                
 
     <!-- Contact Section -->
     <section id="contact">
