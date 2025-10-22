@@ -163,20 +163,20 @@
         }
         
         /* ------------------------------------------------ */
-        /* INFO LIST & GARIS TIMELINE FIX (Stabil) */
+        /* INFO LIST & GARIS TIMELINE FIX (Fix Penuh) */
         /* ------------------------------------------------ */
 
         .info-list {
             margin-top: 20px;
             position: relative;
-            padding-left: 70px; 
+            padding-left: 100px; /* PERUBAHAN: Dorong garis dan ikon lebih jauh ke kanan */
         }
 
         /* GARIS TIMELINE VERTICAL */
         .info-list::after {
             content: '';
             position: absolute;
-            left: 40px; 
+            left: 70px; /* PERUBAHAN: Posisikan garis di tengah padding (100px) */
             top: 0;
             bottom: 0;
             width: 3px;
@@ -196,12 +196,12 @@
             overflow: hidden;
         }
 
-        /* IKON (Bulatan di garis) - Penempatan Akhir */
+        /* IKON (Bulatan di garis) - Penempatan Final */
         .info-icon {
             font-size: 1.2em; 
             flex-shrink: 0;
             position: absolute; 
-            left: 23px; 
+            left: 53px; /* PERUBAHAN: Posisikan ikon agar center di garis vertikal (70px) */
             z-index: 5;
             /* Lingkaran Putih Penutup Garis */
             width: 35px; 
@@ -217,7 +217,7 @@
         
         /* PERBAIKAN AKHIR: Beri padding kiri pada teks */
         .info-text {
-            padding-left: 50px; /* PERUBAHAN KRUSIAL: Dorong teks 50px ke kanan dari titik awal elemen info-item */
+            padding-left: 20px; /* PERUBAHAN KRUSIAL: Beri jarak aman 20px dari lingkaran ikon */
         }
 
         .info-text strong {
