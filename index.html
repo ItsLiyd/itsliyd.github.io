@@ -18,7 +18,7 @@
         }
         body {
             font-family: 'Patrick Hand', 'Arial', cursive;
-            background: linear-gradient(135deg, #FF8C00, #FFA500, #FF4500); /* Gradien oranye utama */
+            background: linear-gradient(135deg, #FF8C00, #FFA500, #FF4500);
             color: #333;
             line-height: 1.6;
             overflow-x: hidden;
@@ -93,10 +93,6 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             animation: slideInUp 1s ease-out 0.5s both;
         }
-        @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
         .cta-button {
             background: #FF4500;
             color: white;
@@ -108,4 +104,313 @@
             transition: transform 0.3s, box-shadow 0.3s;
             text-decoration: none;
             display: inline-block;
-            font-family: 'Patrick
+            font-family: 'Patrick Hand', 'Arial', cursive;
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* ABOUT SECTION & LAYOUT FIX */
+        .about-content {
+            display: flex;
+            align-items: flex-start; 
+            gap: 40px;
+            flex-wrap: wrap;
+            position: relative;
+            padding-top: 0; 
+        }
+
+        /* Gambar Profil (Lingkaran Kanan) */
+        .about-image {
+            position: static; 
+            width: 200px;
+            height: 200px;
+            flex-shrink: 0;
+            margin-left: auto; /* Posisikan ke kanan */
+            overflow: hidden;
+            border-radius: 50%;
+            border: 5px solid #FFD700;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            animation: bounceIn 1.5s ease-out;
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.1); opacity: 0; }
+            60% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Teks Utama */
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 0; 
+        }
+
+        /* ------------------------------------------------ */
+        /* INFO LIST & GARIS TIMELINE FIX (Definitif) */
+        /* ------------------------------------------------ */
+
+        .info-list {
+            margin-top: 20px;
+            position: relative;
+            padding-left: 40px; /* PENTING: Beri padding agar garis timeline terlihat */
+        }
+
+        /* GARIS TIMELINE VERTICAL */
+        .info-list::after {
+            content: '';
+            position: absolute;
+            left: 20px; /* Posisikan garis di 20px dari kiri info-list */
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #FFA500, #FF4500);
+            border-radius: 2px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px; 
+            background: linear-gradient(45deg, rgba(255, 165, 0, 0.1), rgba(255, 140, 0, 0.1));
+            border-radius: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            margin-left: -20px; /* Geser item sedikit ke kiri untuk mendekati garis */
+        }
+
+        /* IKON (Lingkaran di garis) */
+        .info-icon {
+            font-size: 2em;
+            margin-right: 15px;
+            flex-shrink: 0;
+            position: absolute; 
+            left: -35px; /* Posisikan di kiri item, agar menutupi garis vertikal */
+            z-index: 5;
+            width: 40px; 
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: white; /* Lingkaran putih di sekitar ikon untuk menutupi garis */
+            border-radius: 50%;
+            border: 3px solid #FF8C00;
+        }
+
+        .info-text strong {
+            font-family: 'Fredoka One', 'Arial', sans-serif;
+            color: #FF6600;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* PROJECTS SECTION */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        .project-card {
+            background: linear-gradient(45deg, #FF8C00, #FF4500);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .project-card h3 {
+            font-family: 'Fredoka One', 'Arial', sans-serif;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        /* CONTACT SECTION */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contact-links a {
+            color: #FF6600;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-family: 'Patrick Hand', 'Arial', cursive;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #FF4500;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-family: 'Patrick Hand', 'Arial', cursive;
+        }
+
+        /* MEDIA QUERIES (RESPONSIVE) */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5em; }
+            .hero p { font-size: 1.2em; }
+            
+            .about-content { 
+                flex-direction: column; 
+                align-items: center; 
+                display: flex;
+                padding-top: 0; 
+            }
+            .about-image { 
+                margin: 20px auto; 
+                order: 2; 
+            }
+            .about-text { 
+                padding-right: 0;
+                order: 1;
+                text-align: center;
+            }
+            .about-text p, .about-text h3 {
+                text-align: left;
+            }
+            
+            .info-list {
+                padding-left: 0; 
+            }
+            .info-list::after { display: none; } /* Sembunyikan garis */
+            .info-item {
+                margin-left: 0; 
+            }
+            .info-icon {
+                position: static; 
+                width: auto;
+                height: auto;
+                border: none;
+                background: transparent;
+                margin-right: 10px; 
+            }
+
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#about">Tentang</a>
+        <a href="#projects">Proyek</a>
+        <a href="#contact">Kontak</a>
+    </nav>
+
+    <section class="hero">
+        <h1>Pesatir-Handalz</h1>
+        <p>Seorang <strong>Content Creator</strong> dan Juga <strong>Programer</strong> Pemula</p>
+        <a href="#about" class="cta-button">Pelajari Lebih Kanjut</a>
+    </section>
+
+    <section id="about">
+        <h2>Tentang Gwejsh</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Hai! Perkenalkan aku Aurellio, atau sering dikenal dengan nama panggung <strong>Pesatir-Handal</strong>. Gw adalah seorang <strong>Content Crator</strong> yang sekarang fokus ke platform <strong>YouTube</strong>. Aku mempunyai beberapa hobbi seperti <strong>menggambar</strong> dan juga <strong>belajar coding</strong>. Sedikit fakta ajah, gw buat ini website sebenernya juga cuman buat belajar <strong>script HTML</strong> doang :v</p><br>
+                <h3 style="font-family: 'Fredoka One', 'Arial', sans-serif; color: #FF6600; text-align: center; margin-bottom: 20px;">Sedikit Informasi tentang diriku</h3>
+                <div class="info-list">
+                    <div class="info-item">
+                        <div class="info-icon">🏡</div>
+                        <div class="info-text">
+                            <strong>Tempat Tinggal:</strong> <span>Indonesia, Horeg Timur</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">🏫</div>
+                        <div class="info-text">
+                            <strong>Pendidikan:</strong> <span>SMK (Kelas 10)</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">🎓</div>
+                        <div class="info-text">
+                            <strong>Jurusan:</strong> <span>Teknik Jaringan dan Komputer</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">🎧</div>
+                        <div class="info-text">
+                            <strong>Hobby:</strong> <span>Belajar coding, Menggambar, dan Bermain Game</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">🖥️</div>
+                        <div class="info-text">
+                            <strong>Keahlian:</strong> <span>Editor Video (3 Tahun Pengalaman)</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">👰</div>
+                        <div class="info-text">
+                            <strong>Istri:</strong> <span>Hu Tao 🥰</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="https://i.supaimg.com/d0384578-5503-4efe-9b34-01e9e01f8aab.png" alt="Foto Profil" class="profile-img" onerror="this.src='https://via.placeholder.com/300x400/FF8C00/FFFFFF?text=Foto+Error'">
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Proyek Saya</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="https://via.placeholder.com/350x200/FFA500/FFFFFF?text=Website+E-Commerce" alt="Proyek 1">
+                <h3>Pengembangan TawBot</h3>
+                <p>Proyek terniat dan terambisiusku adalah pengembangan bot discord <strong>TawBot</strong>. Ada beberapa fitur yang akan aku tambahkan nanti, seperti moderasi server, musik, dan game mini.</p>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/350x200/FF8C00/FFFFFF?text=Logo+Branding" alt="Proyek 2">
+                <h3>Website Portofolio Ini</h3>
+                <p>Proyek iseng untuk belajar HTML, CSS, dan Javascript dasar. Dibuat dengan inspirasi desain Canva yang ceria dan *lively*.</p>
+            </div> 
+        </div> 
+    </section>
+
+    <section id="contact">
+        <h2>Kontak Saya</h2>
+        <div class="contact-content">
+            <p>Saya siap bekerja sama jika anda menginginkan nya.</p>
+            <p>Untuk hasil yg fast respon untuk sekarang, kamu bisa langsung DM aku pribadi melalui DISCORD</p>
+            <div class="contact-links">
+                <a href="#">Instagram: @pesatir_handalz</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 ┃ Made With Love By Suami Hutao</p>
+    </footer>
+
+    <script>
+    </script>
+</body>
+</html>
