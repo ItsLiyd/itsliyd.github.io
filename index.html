@@ -188,7 +188,7 @@
             display: flex;
             align-items: center;
             margin-bottom: 20px;
-            padding: 15px; /* KEMBALIKAN padding ke nilai standar */
+            padding: 15px; 
             background: linear-gradient(45deg, rgba(255, 165, 0, 0.1), rgba(255, 140, 0, 0.1));
             border-radius: 20px;
             transition: transform 0.3s, box-shadow 0.3s;
@@ -215,9 +215,9 @@
             margin-top: 0px; 
         }
         
-        /* PERBAIKAN AKHIR: Beri margin kiri pada teks */
+        /* PERBAIKAN AKHIR: Beri padding kiri pada teks */
         .info-text {
-            margin-left: 30px; 
+            padding-left: 50px; /* PERUBAHAN KRUSIAL: Dorong teks 50px ke kanan dari titik awal elemen info-item */
         }
 
         .info-text strong {
@@ -336,7 +336,7 @@
                 margin-right: 10px; 
             }
             .info-text {
-                margin-left: 0; /* Hilangkan margin di mobile */
+                padding-left: 0; /* Hilangkan padding di mobile */
             }
 
             .projects-grid { grid-template-columns: 1fr; }
