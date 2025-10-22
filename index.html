@@ -16,6 +16,7 @@
             padding: 0;
             box-sizing: border-box;
         }
+        /* FIX: Tambahkan min-height untuk mencegah body 'collapse' */
         html, body {
             min-height: 100%; 
         }
@@ -155,7 +156,7 @@
             min-width: 300px;
             padding-right: 0; 
         }
-        /* PERUBAHAN: Memperbesar ukuran font paragraf perkenalan di desktop */
+        /* Memperbesar ukuran font paragraf perkenalan di desktop */
         .about-text p {
             font-size: 1.4em; 
             margin-bottom: 20px;
@@ -168,14 +169,14 @@
         .info-list {
             margin-top: 20px;
             position: relative;
-            padding-left: 70px; /* PERUBAHAN: Tambah padding kiri agar konten aman */
+            padding-left: 70px; 
         }
 
         /* GARIS TIMELINE VERTICAL */
         .info-list::after {
             content: '';
             position: absolute;
-            left: 40px; /* PERUBAHAN: Geser garis ke kanan */
+            left: 40px; 
             top: 0;
             bottom: 0;
             width: 3px;
@@ -195,15 +196,15 @@
             overflow: hidden;
         }
 
-        /* IKON (Bulatan di garis) */
+        /* IKON (Bulatan di garis) - FIX EMJOI */
         .info-icon {
-            font-size: 2em;
+            font-size: 1.5em; /* PERUBAHAN: Sedikit perkecil font-size */
             flex-shrink: 0;
             position: absolute; 
-            left: 24px; /* PERUBAHAN: Posisikan ikon agar center di garis vertikal (40px) */
+            left: 23px; /* PERUBAHAN: Posisikan agar center di garis vertikal (40px) */
             z-index: 5;
             /* Lingkaran Putih Penutup Garis */
-            width: 35px; /* Sedikit lebih besar */
+            width: 35px; 
             height: 35px;
             display: flex;
             justify-content: center;
@@ -211,6 +212,7 @@
             background: white; 
             border-radius: 50%;
             border: 3px solid #FF8C00;
+            margin-top: 3px; /* PERUBAHAN: Sedikit geser vertikal */
         }
 
         .info-text strong {
@@ -285,7 +287,7 @@
             .hero p { font-size: 1.2em; }
             
             section {
-                padding: 40px 20px; /* Kurangi padding di mobile */
+                padding: 40px 20px; 
             }
 
             .about-content { 
