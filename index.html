@@ -16,7 +16,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-        /* FIX: Tambahkan min-height untuk mencegah body 'collapse' */
         html, body {
             min-height: 100%; 
         }
@@ -29,7 +28,7 @@
             overflow-x: hidden;
         }
         section {
-            padding: 80px 50px; /* Lebarkan konten */
+            padding: 80px 50px; 
             max-width: 1400px; 
             margin: 0 auto 40px;
             background: rgba(255, 255, 255, 0.95);
@@ -78,9 +77,9 @@
         .hero {
             height: 100vh;
             display: flex;
-            flex-direction: column;
+            flex-direction: column; 
             justify-content: center;
-            align-items: center;
+            align-items: center; 
             text-align: center;
             background: linear-gradient(135deg, rgba(255, 140, 0, 0.8), rgba(255, 165, 0, 0.9));
             color: white;
@@ -91,6 +90,19 @@
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* Foto Profil di Hero Section (Baru ditambahkan) */
+        .hero-profile-image {
+            width: 200px; 
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%; 
+            border: 5px solid #FFD700; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3); 
+            margin-bottom: 30px; 
+            animation: bounceIn 1.5s ease-out; 
+        }
+
         .hero h1 {
             font-family: 'Fredoka One', 'Arial', sans-serif;
             font-size: 4em;
@@ -116,7 +128,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        /* ABOUT SECTION & LAYOUT FIX */
+        /* ABOUT SECTION & LAYOUT */
         .about-content {
             display: flex;
             align-items: flex-start; 
@@ -126,10 +138,9 @@
             padding-top: 0; 
         }
 
-        /* Gambar Profil */
+        /* Gambar Profil (Yang ada di section About) */
         .about-image {
-            position: static; 
-            width: 200px;
+            width: 200px; 
             height: 200px;
             flex-shrink: 0;
             margin-left: auto; 
@@ -156,27 +167,26 @@
             min-width: 300px;
             padding-right: 0; 
         }
-        /* Memperbesar ukuran font paragraf perkenalan di desktop */
         .about-text p {
             font-size: 1.4em; 
             margin-bottom: 20px;
         }
         
         /* ------------------------------------------------ */
-        /* INFO LIST & GARIS TIMELINE FIX (Fix Penuh) */
+        /* INFO LIST & GARIS TIMELINE (Fix Penuh) */
         /* ------------------------------------------------ */
 
         .info-list {
             margin-top: 20px;
             position: relative;
-            padding-left: 100px; /* PERUBAHAN: Dorong garis dan ikon lebih jauh ke kanan */
+            padding-left: 100px; 
         }
 
         /* GARIS TIMELINE VERTICAL */
         .info-list::after {
             content: '';
             position: absolute;
-            left: 70px; /* PERUBAHAN: Posisikan garis di tengah padding (100px) */
+            left: 70px; 
             top: 0;
             bottom: 0;
             width: 3px;
@@ -201,9 +211,8 @@
             font-size: 1.2em; 
             flex-shrink: 0;
             position: absolute; 
-            left: 53px; /* PERUBAHAN: Posisikan ikon agar center di garis vertikal (70px) */
+            left: 53px; 
             z-index: 5;
-            /* Lingkaran Putih Penutup Garis */
             width: 35px; 
             height: 35px;
             display: flex;
@@ -215,9 +224,8 @@
             margin-top: 0px; 
         }
         
-        /* PERBAIKAN AKHIR: Beri padding kiri pada teks */
         .info-text {
-            padding-left: 20px; /* PERUBAHAN KRUSIAL: Beri jarak aman 20px dari lingkaran ikon */
+            padding-left: 20px; 
         }
 
         .info-text strong {
@@ -291,6 +299,13 @@
             .hero h1 { font-size: 2.5em; }
             .hero p { font-size: 1.2em; }
             
+            /* Penyesuaian gambar profil di hero untuk mobile */
+            .hero-profile-image {
+                width: 150px; 
+                height: 150px;
+                margin-bottom: 20px;
+            }
+
             section {
                 padding: 40px 20px; 
             }
@@ -301,10 +316,11 @@
                 display: flex;
                 padding-top: 0; 
             }
+            /* Karena about-image tetap di about section, aturannya tetap berlaku */
             .about-image { 
                 margin: 20px auto; 
                 order: 2; 
-            }
+            } 
             .about-text { 
                 padding-right: 0;
                 order: 1;
@@ -314,7 +330,6 @@
                 text-align: left;
             }
             
-            /* Kembalikan ukuran teks ke normal di mobile */
             .about-text p {
                 font-size: 1em; 
             }
@@ -326,7 +341,6 @@
             .info-item {
                 margin-left: 0; 
             }
-            /* Ikon mobile: kembali ke mode inline */
             .info-icon {
                 position: static; 
                 width: auto;
@@ -336,7 +350,7 @@
                 margin-right: 10px; 
             }
             .info-text {
-                padding-left: 0; /* Hilangkan padding di mobile */
+                padding-left: 0; 
             }
 
             .projects-grid { grid-template-columns: 1fr; }
@@ -351,6 +365,7 @@
     </nav>
 
     <section class="hero">
+        <img src="https://i.supaimg.com/d0384578-5503-4efe-9b34-01e9e01f8aab.png" alt="Foto Profil" class="hero-profile-image">
         <h1>Pesatir-Handalz</h1>
         <p>Seorang <strong>Content Creator</strong> dan Juga <strong>Programer</strong> Pemula</p>
         <a href="#about" class="cta-button">Pelajari Lebih Kanjut</a>
@@ -418,7 +433,7 @@
             <div class="project-card">
                 <img src="https://via.placeholder.com/350x200/FF8C00/FFFFFF?text=Logo+Branding" alt="Proyek 2">
                 <h3>Website Portofolio Ini</h3>
-                <p>Proyek iseng untuk belajar HTML, CSS, dan Javascript dasar. Dibuat dengan inspirasi desain Canva yang ceria dan lively.</p>
+                <p>Proyek iseng untuk belajar HTML, CSS, dan Javascript dasar. Dibuat dengan inspirasi desain Canva yang ceria dan *lively*.</p>
             </div> 
         </div> 
     </section>
