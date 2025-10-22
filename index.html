@@ -16,7 +16,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-        /* FIX: Tambahkan min-height untuk mencegah body 'collapse' */
         html, body {
             min-height: 100%; 
         }
@@ -29,12 +28,12 @@
             overflow-x: hidden;
         }
         section {
-            padding: 80px 20px;
-            max-width: 1200px;
+            padding: 80px 50px; /* PERUBAHAN: Tambah padding horizontal */
+            max-width: 1400px; /* PERUBAHAN: Lebarkan konten */
             margin: 0 auto 40px;
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 20px; /* Sedikit lengkungan lebih besar */
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2); /* Bayangan lebih dalam */
             animation: fadeInUp 1s ease-out;
         }
         @keyframes fadeInUp {
@@ -126,7 +125,7 @@
             padding-top: 0; 
         }
 
-        /* Gambar Profil (CSS INI TIDAK DIOBATIK-ATIK) */
+        /* Gambar Profil */
         .about-image {
             position: static; 
             width: 200px;
@@ -163,20 +162,20 @@
         }
         
         /* ------------------------------------------------ */
-        /* INFO LIST & GARIS TIMELINE FIX (Stabil) */
+        /* INFO LIST & GARIS TIMELINE FIX (Stabil & Geser Kanan) */
         /* ------------------------------------------------ */
 
         .info-list {
             margin-top: 20px;
             position: relative;
-            padding-left: 50px; /* Jarak yang lebih jauh untuk garis dan ikon */
+            padding-left: 70px; /* PERUBAHAN: Tambah padding kiri agar konten aman */
         }
 
         /* GARIS TIMELINE VERTICAL */
         .info-list::after {
             content: '';
             position: absolute;
-            left: 20px; /* Posisi garis stabil */
+            left: 40px; /* PERUBAHAN: Geser garis ke kanan */
             top: 0;
             bottom: 0;
             width: 3px;
@@ -196,16 +195,16 @@
             overflow: hidden;
         }
 
-        /* IKON (Bulatan di garis) - Menggunakan metode lama yang lebih stabil */
+        /* IKON (Bulatan di garis) */
         .info-icon {
             font-size: 2em;
             flex-shrink: 0;
             position: absolute; 
-            left: -10px; /* Posisikan ikon agar sedikit menutupi garis */
+            left: 24px; /* PERUBAHAN: Posisikan ikon agar center di garis vertikal (40px) */
             z-index: 5;
             /* Lingkaran Putih Penutup Garis */
-            width: 40px; 
-            height: 40px;
+            width: 35px; /* Sedikit lebih besar */
+            height: 35px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -285,6 +284,10 @@
             .hero h1 { font-size: 2.5em; }
             .hero p { font-size: 1.2em; }
             
+            section {
+                padding: 40px 20px; /* Kurangi padding di mobile */
+            }
+
             .about-content { 
                 flex-direction: column; 
                 align-items: center; 
@@ -304,7 +307,7 @@
                 text-align: left;
             }
             
-            /* PENTING: Kembalikan ukuran teks ke normal di mobile */
+            /* Kembalikan ukuran teks ke normal di mobile */
             .about-text p {
                 font-size: 1em; 
             }
