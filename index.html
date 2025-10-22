@@ -91,7 +91,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Foto Profil di Hero Section (Baru ditambahkan) */
+        /* Foto Profil di Hero Section */
         .hero-profile-image {
             width: 200px; 
             height: 200px;
@@ -140,6 +140,7 @@
 
         /* Gambar Profil (Yang ada di section About) */
         .about-image {
+            display: none; /* PERUBAHAN KRUSIAL: Sembunyikan di desktop */
             width: 200px; 
             height: 200px;
             flex-shrink: 0;
@@ -316,8 +317,9 @@
                 display: flex;
                 padding-top: 0; 
             }
-            /* Karena about-image tetap di about section, aturannya tetap berlaku */
+            /* MUNCULKAN KEMBALI di mobile/tablet */
             .about-image { 
+                display: block; 
                 margin: 20px auto; 
                 order: 2; 
             } 
@@ -365,7 +367,9 @@
     </nav>
 
     <section class="hero">
-        <img src="https://i.supaimg.com/d0384578-5503-4efe-9b34-01e9e01f8aab.png" alt="Foto Profil" class="hero-profile-image">
+        
+
+<img src="https://i.supaimg.com/d0384578-5503-4efe-9b34-01e9e01f8aab.png" alt="Foto Profil" class="hero-profile-image">
         <h1>Pesatir-Handalz</h1>
         <p>Seorang <strong>Content Creator</strong> dan Juga <strong>Programer</strong> Pemula</p>
         <a href="#about" class="cta-button">Pelajari Lebih Kanjut</a>
@@ -416,7 +420,9 @@
                     </div>
                 </div>
             </div>
-            <div class="about-image">
+            
+
+<div class="about-image">
                 <img src="https://i.supaimg.com/d0384578-5503-4efe-9b34-01e9e01f8aab.png" alt="Foto Profil" class="profile-img" onerror="this.src='https://via.placeholder.com/300x400/FF8C00/FFFFFF?text=Foto+Error'">
             </div>
         </div>
