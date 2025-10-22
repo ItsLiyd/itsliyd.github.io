@@ -144,7 +144,6 @@
             width: 200px; 
             height: 200px;
             flex-shrink: 0;
-            /* margin-left: auto; */ /* Tidak perlu lagi karena disembunyikan */
             overflow: hidden;
             border-radius: 50%;
             border: 5px solid #FFD700;
@@ -167,17 +166,16 @@
             flex: 1;
             min-width: 300px;
             padding-right: 0; 
-            max-width: 700px; /* PERUBAHAN KRUSIAL: Batasi lebar agar teks tidak terlalu panjang */
-            margin: 0 auto; /* PENTING: Pusatkan teks agar rapi */
+            max-width: 700px; 
+            margin: 0 auto; 
         }
         .about-text p {
             font-size: 1.4em; 
             margin-bottom: 20px;
-            text-align: center; /* Pusatkan paragraf */
+            text-align: center; 
         }
 
         .about-text h3 {
-             /* Pastikan heading memusat dengan baik */
              text-align: center !important; 
         }
         
@@ -220,7 +218,7 @@
             font-size: 1.2em; 
             flex-shrink: 0;
             position: absolute; 
-            left: 53px; 
+            left: 30px; /* GESER IKON */
             z-index: 5;
             width: 35px; 
             height: 35px;
@@ -234,7 +232,7 @@
         }
         
         .info-text {
-            padding-left: 20px; 
+            padding-left: 60px; /* GESER TEKS */
         }
 
         .info-text strong {
@@ -345,6 +343,7 @@
                 font-size: 1em; 
             }
             
+            /* Di mobile, list tidak memiliki garis, jadi aturannya berbeda */
             .info-list {
                 padding-left: 0; 
             }
