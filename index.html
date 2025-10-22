@@ -7,7 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Patrick+Hand&display=swap" rel-stylesheet">
 
     <style>
         /* BASE & THEME */
@@ -138,55 +138,75 @@
             padding-top: 0; 
         }
 
-        /* Gambar Profil (Yang ada di section About) */
+        /* Gambar Profil (Minecraft Skin) */
         .about-image {
-            display: none; /* Sembunyikan di desktop */
-            width: 200px; 
-            height: 200px;
+            display: block; 
+            width: 300px; 
+            height: 350px; 
             flex-shrink: 0;
             overflow: hidden;
-            border-radius: 50%;
-            border: 5px solid #FFD700;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            border-radius: 0; 
+            border: none; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
             animation: bounceIn 1.5s ease-out;
+            order: 1; 
+            position: relative; 
+            margin-left: -50px; 
+            margin-top: -30px; 
+
+            /* --- CLIP-PATH UNTUK BENTUK GELOMBANG --- */
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 40% 100%, 0 95%); /* Bentuk gelombang yang disesuaikan */
+
+            background: linear-gradient(135deg, #FF8C00, #FF4500); 
         }
+        /* Style untuk gambar di dalam about-image */
+        .about-image .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+            transform: translateY(10%); /* Tekan gambar ke bawah agar menempel di gelombang */
+            transform-origin: bottom center; 
+        }
+
         @keyframes bounceIn {
             0% { transform: scale(0.1); opacity: 0; }
             60% { transform: scale(1.1); opacity: 1; }
             100% { transform: scale(1); }
         }
-        .profile-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Teks Utama (Paragraf Perkenalan) */
+        
+        /* Teks Utama (Paragraf Perkenalan & Info List) */
         .about-text {
             flex: 1;
-            min-width: 300px;
+            min-width: 400px; 
             padding-right: 0; 
             max-width: 700px; 
-            margin: 0 auto; 
+            margin: 0; 
+            order: 2; 
+            padding-left: 20px; 
         }
         .about-text p {
             font-size: 1.4em; 
             margin-bottom: 20px;
-            text-align: center; 
+            text-align: left; 
         }
 
+        /* Judul "Sedikit Informasi Tentang Gw" */
         .about-text h3 {
              text-align: center !important; 
+             margin-top: 30px; 
+             margin-bottom: 20px;
         }
         
         /* ------------------------------------------------ */
-        /* INFO LIST & GARIS TIMELINE (Fix Penuh) */
+        /* INFO LIST & GARIS TIMELINE */
         /* ------------------------------------------------ */
 
         .info-list {
             margin-top: 20px;
             position: relative;
             padding-left: 100px; 
+            max-width: 600px; 
+            margin-right: auto; 
         }
 
         /* GARIS TIMELINE VERTICAL */
@@ -218,7 +238,7 @@
             font-size: 1.2em; 
             flex-shrink: 0;
             position: absolute; 
-            left: 30px; /* GESER IKON */
+            left: 48px; 
             z-index: 5;
             width: 35px; 
             height: 35px;
@@ -232,7 +252,7 @@
         }
         
         .info-text {
-            padding-left: 60px; /* GESER TEKS */
+            padding-left: 55px; /* Jarak aman dari ikon/emoji */
         }
 
         .info-text strong {
@@ -302,67 +322,69 @@
         }
 
         /* MEDIA QUERIES (RESPONSIVE) */
-        @media (max-width: 768px) {
+        @media (max-width: 992px) { 
+            .about-content {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            .about-image {
+                width: 250px;
+                height: 250px;
+                order: 1; 
+                margin: 20px auto; 
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); 
+                background: linear-gradient(135deg, #FF8C00, #FF4500); 
+                border-radius: 15px; 
+            }
+            .about-image .profile-img {
+                object-fit: cover; 
+                transform: none; 
+            }
+            .about-text {
+                order: 2;
+                max-width: 100%;
+                padding-left: 0;
+            }
+            .about-text p {
+                text-align: center; 
+            }
+            .about-text h3 {
+                text-align: center !important;
+            }
+            .info-list {
+                padding-left: 0;
+                max-width: 100%;
+            }
+            .info-list::after { display: none; }
+            .info-item {
+                margin-left: auto;
+                margin-right: auto;
+                width: 90%;
+            }
+            .info-icon {
+                position: static;
+                width: auto;
+                height: auto;
+                border: none;
+                background: transparent;
+                margin-right: 10px;
+                transform: none;
+            }
+            .info-text {
+                padding-left: 0;
+            }
+
             .hero h1 { font-size: 2.5em; }
             .hero p { font-size: 1.2em; }
-            
-            /* Penyesuaian gambar profil di hero untuk mobile */
             .hero-profile-image {
                 width: 150px; 
                 height: 150px;
                 margin-bottom: 20px;
             }
-
             section {
                 padding: 40px 20px; 
             }
-
-            .about-content { 
-                flex-direction: column; 
-                align-items: center; 
-                display: flex;
-                padding-top: 0; 
-            }
-            /* MUNCULKAN KEMBALI di mobile/tablet */
-            .about-image { 
-                display: block; 
-                margin: 20px auto; 
-                order: 2; 
-            } 
-            .about-text { 
-                padding-right: 0;
-                order: 1;
-                text-align: center;
-                max-width: 100%; /* Lebarkan kembali untuk mobile */
-            }
-            .about-text p, .about-text h3 {
-                text-align: left; /* Teks paragraf kembali ke rata kiri di mobile */
-            }
-            
-            .about-text p {
-                font-size: 1em; 
-            }
-            
-            /* Di mobile, list tidak memiliki garis, jadi aturannya berbeda */
-            .info-list {
-                padding-left: 0; 
-            }
-            .info-list::after { display: none; }
-            .info-item {
-                margin-left: 0; 
-            }
-            .info-icon {
-                position: static; 
-                width: auto;
-                height: auto;
-                border: none;
-                background: transparent;
-                margin-right: 10px; 
-            }
-            .info-text {
-                padding-left: 0; 
-            }
-
             .projects-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -384,9 +406,14 @@
     <section id="about">
         <h2>Tentang Gwejsh</h2>
         <div class="about-content">
+            
+<div class="about-image">
+                <img src="https://via.placeholder.com/300x400/FF8C00/FFFFFF?text=Minecraft+Skin" alt="Minecraft Skin" class="profile-img">
+            </div>
+
             <div class="about-text">
                 <p>Hai! Perkenalkan aku Aurellio, atau sering dikenal dengan nama panggung <strong>Pesatir-Handal</strong>. Gw adalah seorang <strong>Content Crator</strong> yang sekarang fokus ke platform <strong>YouTube</strong>. Aku mempunyai beberapa hobbi seperti <strong>menggambar</strong> dan juga <strong>belajar coding</strong>. Sedikit fakta ajah, gw buat ini website sebenernya juga cuman buat belajar <strong>script HTML</strong> doang :v</p><br>
-                <h3 style="font-family: 'Fredoka One', 'Arial', sans-serif; color: #FF6600; text-align: center; margin-bottom: 20px;">Sedikit Informasi tentang diriku</h3>
+                <h3 style="font-family: 'Fredoka One', 'Arial', sans-serif; color: #FF6600; text-align: center; margin-bottom: 20px;">Sedikit Informasi Tentang Gw</h3>
                 <div class="info-list">
                     <div class="info-item">
                         <div class="info-icon">🏡</div>
@@ -425,10 +452,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="about-image">
-                <img src="https://i.supaimg.com/d0384578-5503-4efe-9b34-01e9e01f8aab.png" alt="Foto Profil" class="profile-img" onerror="this.src='https://via.placeholder.com/300x400/FF8C00/FFFFFF?text=Foto+Error'">
             </div>
         </div>
     </section>
