@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio Gw 😜</title>
-    
-    <!-- Google Fonts: Paket 1 - Fredoka One (heading kartun) + Patrick Hand (body santai) -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Patrick+Hand&display=swap" rel="stylesheet">
-    
+
     <style>
         /* CSS mirip Canva: Clean, modern, dengan oranye dominan dan animasi lively */
         * {
@@ -18,7 +17,7 @@
             box-sizing: border-box;
         }
         body {
-            font-family: 'Patrick Hand', 'Arial', cursive;  /* Body: Santai handwritten */
+            font-family: 'Patrick Hand', 'Arial', cursive; /* Body: Santai handwritten */
             background: linear-gradient(135deg, #FF8C00, #FFA500, #FF4500); /* Gradien oranye utama */
             color: #333;
             line-height: 1.6;
@@ -42,7 +41,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
         .hero h1 {
-            font-family: 'Fredoka One', 'Arial', sans-serif;  /* Heading: Kartun bubbly */
+            font-family: 'Fredoka One', 'Arial', sans-serif; /* Heading: Kartun bubbly */
             font-size: 4em;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
@@ -68,7 +67,7 @@
             transition: transform 0.3s, box-shadow 0.3s; /* Lively hover */
             text-decoration: none;
             display: inline-block;
-            font-family: 'Patrick Hand', 'Arial', cursive;  /* Tombol santai */
+            font-family: 'Patrick Hand', 'Arial', cursive; /* Tombol santai */
         }
         .cta-button:hover {
             transform: scale(1.05);
@@ -95,7 +94,7 @@
             margin: 0 20px;
             font-weight: bold;
             transition: color 0.3s, transform 0.3s;
-            font-family: 'Patrick Hand', 'Arial', cursive;  /* Nav santai */
+            font-family: 'Patrick Hand', 'Arial', cursive; /* Nav santai */
         }
         nav a:hover {
             color: #FFD700; /* Emas untuk aksen */
@@ -120,7 +119,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
         h2 {
-            font-family: 'Fredoka One', 'Arial', sans-serif;  /* Heading section: Kartun */
+            font-family: 'Fredoka One', 'Arial', sans-serif; /* Heading section: Kartun */
             color: #FF6600; /* Oranye untuk heading */
             text-align: center;
             font-size: 2.5em;
@@ -128,19 +127,52 @@
             border-bottom: 4px solid #FFA500;
             padding-bottom: 15px;
         }
-        /* About Section mirip Canva: Teks + foto di kanan, ukuran disesuaikan */
+        
+        /* About Section - CONTAINER UTAMA */
         .about-content {
-            display: flex;
-            align-items: flex-start; /* Align top biar tinggi gambar gak ganggu teks */
-            gap: 40px;
-            flex-wrap: wrap;
+            position: relative; 
+            padding-top: 50px; /* Jarak untuk gambar yang diposisikan di atas */
         }
+
+        /* Container untuk Gambar - Dibuat untuk posisi absolut di kanan atas */
+        .about-image {
+            position: absolute;
+            /* Posisikan di kanan atas dari section about (kartu putih) */
+            top: -50px; 
+            right: -20px; 
+            z-index: 10; 
+            width: 200px; 
+            height: 200px;
+            overflow: hidden; 
+            border-radius: 50%; /* Membuat gambar menjadi lingkaran */
+            border: 5px solid #FFD700; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3); 
+            animation: bounceIn 1.5s ease-out; 
+        }
+
+        /* Animasi untuk gambar */
+        @keyframes bounceIn {
+            0% { transform: scale(0.1); opacity: 0; }
+            60% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+
+        /* Gambar Profil */
+        .profile-img {
+            width: 100%; 
+            height: 100%;
+            object-fit: cover; 
+            border-radius: 0; 
+        }
+
+        /* About Text */
         .about-text {
             flex: 1;
             min-width: 300px;
+            padding-right: 220px; /* Tambahkan ruang kosong di kanan agar teks tidak tumpang tindih dengan gambar */
         }
         .about-text p {
-            font-family: 'Patrick Hand', 'Arial', cursive;  /* Teks santai */
+            font-family: 'Patrick Hand', 'Arial', cursive; /* Teks santai */
         }
         /* Info list: Lebih santai, kurang kotak - gunakan flexbox vertikal dengan ikon emoji dan garis halus */
         .info-list {
@@ -151,7 +183,8 @@
             display: flex;
             align-items: center;
             margin-bottom: 20px;
-            padding: 15px;
+            /* TAMBAH PADDING KIRI AGAR TIDAK NABRAK GARIS TIMELINE */
+            padding: 15px 15px 15px 50px; 
             background: linear-gradient(45deg, rgba(255, 165, 0, 0.1), rgba(255, 140, 0, 0.1)); /* Gradien halus, transparan */
             border-radius: 20px; /* Lebih bulat, kurang kotak */
             transition: transform 0.3s, box-shadow 0.3s;
@@ -179,6 +212,9 @@
             font-size: 2em;
             margin-right: 15px;
             flex-shrink: 0;
+            /* PINDAH POSISI IKON SEDIKIT KE KIRI UNTUK MERAPIKAN */
+            position: absolute;
+            left: 10px; 
         }
         .info-text {
             flex: 1;
@@ -196,52 +232,61 @@
         .info-list::after {
             content: '';
             position: absolute;
-            left: 30px; /* Sesuai posisi ikon */
+            left: 30px; /* DIPINDAH AGAR TIDAK NABRAK IKON */
             top: 0;
             bottom: 0;
             width: 3px;
             background: linear-gradient(to bottom, #FFA500, #FF4500);
             border-radius: 2px;
         }
-        /* Gambar profil: Di desktop, ukuran disesuaikan agar tidak terlalu besar, tetap di kanan */
-        .profile-img {
-            width: 290px; /* Ukuran disesuaikan untuk desktop: lebih kecil dari asli, tapi proporsional */
-            height: auto; /* Jaga rasio aspek */
-            max-width: 100%; /* Agar responsif jika layar lebih kecil */
-            border-radius: 10px; /* Opsional: Tambah sedikit radius untuk estetika */
-        }
+
         /* Responsif untuk mobile: Lebih fokus pada vertikal, teks lebih besar, navigasi mudah */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5em; }
             .hero p { font-size: 1.2em; }
-            .about-content { 
-                flex-direction: column; 
-                text-align: center; 
-                align-items: center; 
+            
+            /* MOBILE LAYOUT ADJUSTMENTS */
+            .about-content { 
+                flex-direction: column; 
+                text-align: center; 
+                align-items: center; 
+                display: flex; /* Aktifkan flex untuk menyusun vertikal */
+                padding-top: 0; 
             }
             .about-image { 
-                margin-left: 0; /* Di mobile, centered */
-                text-align: center; 
+                position: static; /* Kembali ke posisi normal */
+                width: 200px; /* Ukuran standar mobile */
+                height: 200px;
+                margin: 20px auto; /* Centered di tengah */
                 order: 2; /* Gambar di bawah teks */
             }
-            .profile-img { 
-                width: 250px; /* Lebih kecil di mobile, height auto */
-                height: auto;
+            .about-text { 
+                padding-right: 0; /* Hapus padding yang mengganggu di mobile */
+                order: 1; /* Teks di atas gambar */
+                text-align: left; /* Kembalikan teks ke kiri */
             }
+            .profile-img { 
+                width: 100%; 
+                height: 100%;
+            }
+            
             .info-list::after { display: none; } /* Sembunyikan garis di mobile untuk lebih clean */
             .info-item {
-                flex-direction: column; /* Ikon di atas teks di mobile */
-                text-align: center;
-                padding: 10px;
+                flex-direction: row; /* Biarkan ikon di samping teks (lebih ringkas) */
+                text-align: left;
+                padding: 10px 15px; /* Kurangi padding di mobile */
             }
             .info-icon {
-                margin-right: 0;
-                margin-bottom: 10px;
+                position: static; /* Hilangkan posisi absolut */
+                margin-right: 15px;
+                margin-bottom: 0;
+                font-size: 1.5em;
             }
+
             .projects-grid { grid-template-columns: 1fr; }
             nav a { margin: 0 10px; font-size: 0.9em; }
-            h2 { font-size: 2em; }  /* Kecilkan heading di mobile untuk readability */
-            section { padding: 60px 15px; } /* Kurangi padding di mobile */
+            h2 { font-size: 2em; } 
+            section { padding: 60px 15px; } 
         }
         /* Projects Grid mirip Canva: 3-column grid dengan card */
         .projects-grid {
@@ -285,12 +330,12 @@
             margin-bottom: 20px;
         }
         .project-card h3 {
-            font-family: 'Fredoka One', 'Arial', sans-serif;  /* Heading card: Kartun */
+            font-family: 'Fredoka One', 'Arial', sans-serif; /* Heading card: Kartun */
             font-size: 1.5em;
             margin-bottom: 10px;
         }
         .project-card p {
-            font-family: 'Patrick Hand', 'Arial', cursive;  /* Body card: Santai */
+            font-family: 'Patrick Hand', 'Arial', cursive; /* Body card: Santai */
         }
         /* Contact Section mirip Canva: Sederhana dengan form placeholder */
         .contact-content {
@@ -299,7 +344,7 @@
             margin: 0 auto;
         }
         .contact-content p {
-            font-family: 'Patrick Hand', 'Arial', cursive;  /* Teks santai */
+            font-family: 'Patrick Hand', 'Arial', cursive; /* Teks santai */
             font-size: 1.2em;
             margin-bottom: 20px;
         }
@@ -325,26 +370,23 @@
             text-align: center;
             padding: 20px;
             margin-top: 40px;
-            font-family: 'Patrick Hand', 'Arial', cursive;  /* Footer santai */
+            font-family: 'Patrick Hand', 'Arial', cursive; /* Footer santai */
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <a href="#about">Tentang</a>
         <a href="#projects">Proyek</a>
         <a href="#contact">Kontak</a>
     </nav>
 
-    <!-- Hero Section mirip Canva -->
     <section class="hero">
         <h1>Pesatir-Handalz</h1>
         <p>Seorang <strong>Content Creator</strong> dan Juga <strong>Programer</strong> Pemula</p>
         <a href="#about" class="cta-button">Pelajari Lebih Kanjut</a>
     </section>
 
-    <!-- About Section -->
     <section id="about">
         <h2>Tentang Gwejsh</h2>
         <div class="about-content">
@@ -396,7 +438,6 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects">
         <h2>Proyek Saya</h2>
         <div class="projects-grid">
@@ -407,10 +448,9 @@
             </div>
             <div class="project-card">
                 <img src="https://via.placeholder.com/350x200/FF8C00/FFFFFF?text=Logo+Branding" alt="Proyek 2">
-                
-
-    <!-- Contact Section -->
-    <section id="contact">
+                <h3>Website Portofolio Ini</h3>
+                <p>Proyek iseng untuk belajar HTML, CSS, dan Javascript dasar. Dibuat dengan inspirasi desain Canva yang ceria dan *lively*.</p>
+            </div> </div> </section> <section id="contact">
         <h2>Kontak Saya</h2>
         <div class="contact-content">
             <p>Saya siap bekerja sama jika anda menginginkan nya.</p>
@@ -421,7 +461,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2025 ┃ Made With Love By Suami Hutao</p>
     </footer>
