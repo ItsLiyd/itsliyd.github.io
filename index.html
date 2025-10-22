@@ -140,11 +140,11 @@
 
         /* Gambar Profil (Yang ada di section About) */
         .about-image {
-            display: none; /* PERUBAHAN: Sembunyikan di desktop */
+            display: none; /* Sembunyikan di desktop */
             width: 200px; 
             height: 200px;
             flex-shrink: 0;
-            margin-left: auto; 
+            /* margin-left: auto; */ /* Tidak perlu lagi karena disembunyikan */
             overflow: hidden;
             border-radius: 50%;
             border: 5px solid #FFD700;
@@ -162,15 +162,23 @@
             object-fit: cover;
         }
 
-        /* Teks Utama */
+        /* Teks Utama (Paragraf Perkenalan) */
         .about-text {
             flex: 1;
             min-width: 300px;
             padding-right: 0; 
+            max-width: 700px; /* PERUBAHAN KRUSIAL: Batasi lebar agar teks tidak terlalu panjang */
+            margin: 0 auto; /* PENTING: Pusatkan teks agar rapi */
         }
         .about-text p {
             font-size: 1.4em; 
             margin-bottom: 20px;
+            text-align: center; /* Pusatkan paragraf */
+        }
+
+        .about-text h3 {
+             /* Pastikan heading memusat dengan baik */
+             text-align: center !important; 
         }
         
         /* ------------------------------------------------ */
@@ -327,9 +335,10 @@
                 padding-right: 0;
                 order: 1;
                 text-align: center;
+                max-width: 100%; /* Lebarkan kembali untuk mobile */
             }
             .about-text p, .about-text h3 {
-                text-align: left;
+                text-align: left; /* Teks paragraf kembali ke rata kiri di mobile */
             }
             
             .about-text p {
