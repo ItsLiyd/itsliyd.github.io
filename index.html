@@ -10,74 +10,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Patrick+Hand&display=swap" rel="stylesheet">
 
     <style>
-        /* CSS mirip Canva: Clean, modern, dengan oranye dominan dan animasi lively */
+        /* BASE & THEME */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         body {
-            font-family: 'Patrick Hand', 'Arial', cursive; /* Body: Santai handwritten */
+            font-family: 'Patrick Hand', 'Arial', cursive;
             background: linear-gradient(135deg, #FF8C00, #FFA500, #FF4500); /* Gradien oranye utama */
             color: #333;
             line-height: 1.6;
             overflow-x: hidden;
         }
-        /* Section Utama */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(135deg, rgba(255, 140, 0, 0.8), rgba(255, 165, 0, 0.9)); /* Oranye transparan */
-            color: white;
-            padding: 0 20px;
-            animation: fadeIn 1.5s ease-out;
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s ease-out;
         }
-        @keyframes fadeIn {
+        @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .hero h1 {
-            font-family: 'Fredoka One', 'Arial', sans-serif; /* Heading: Kartun bubbly */
-            font-size: 4em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: slideInUp 1s ease-out 0.5s both;
+        h2 {
+            font-family: 'Fredoka One', 'Arial', sans-serif;
+            color: #FF6600;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            border-bottom: 4px solid #FFA500;
+            padding-bottom: 15px;
         }
-        @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .hero p {
-            font-size: 1.5em;
-            margin-bottom: 30px;
-            max-width: 600px;
-        }
-        .cta-button {
-            background: #FF4500; /* Oranye gelap untuk tombol */
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2em;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s; /* Lively hover */
-            text-decoration: none;
-            display: inline-block;
-            font-family: 'Patrick Hand', 'Arial', cursive; /* Tombol santai */
-        }
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        .cta-button:active {
-            transform: scale(0.95); /* Animasi klik: scale down */
-            transition: transform 0.1s;
-        }
-        /* Navigation sederhana, mirip Canva (sticky jika perlu) */
+
+        /* NAVIGATION */
         nav {
             position: fixed;
             top: 0;
@@ -94,378 +63,49 @@
             margin: 0 20px;
             font-weight: bold;
             transition: color 0.3s, transform 0.3s;
-            font-family: 'Patrick Hand', 'Arial', cursive; /* Nav santai */
+            font-family: 'Patrick Hand', 'Arial', cursive;
         }
         nav a:hover {
-            color: #FFD700; /* Emas untuk aksen */
+            color: #FFD700;
         }
-        nav a:active {
-            transform: scale(0.9); /* Animasi klik: scale down */
-            transition: transform 0.1s;
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.8), rgba(255, 165, 0, 0.9));
+            color: white;
+            padding: 0 20px;
+            animation: fadeIn 1.5s ease-out;
         }
-        /* Sections mirip Canva: Max-width, centered, dengan padding */
-        section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95); /* Putih transparan untuk kontras */
-            border-radius: 15px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            animation: fadeInUp 1s ease-out;
-        }
-        @keyframes fadeInUp {
+        @keyframes fadeIn {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        h2 {
-            font-family: 'Fredoka One', 'Arial', sans-serif; /* Heading section: Kartun */
-            color: #FF6600; /* Oranye untuk heading */
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            border-bottom: 4px solid #FFA500;
-            padding-bottom: 15px;
-        }
-        
-        /* About Section - CONTAINER UTAMA */
-        .about-content {
-            position: relative; 
-            padding-top: 50px; /* Jarak untuk gambar yang diposisikan di atas */
-        }
-
-        /* Container untuk Gambar - Dibuat untuk posisi absolut di kanan atas */
-        .about-image {
-            position: absolute;
-            /* Posisikan di kanan atas dari section about (kartu putih) */
-            top: -50px; 
-            right: -20px; 
-            z-index: 10; 
-            width: 200px; 
-            height: 200px;
-            overflow: hidden; 
-            border-radius: 50%; /* Membuat gambar menjadi lingkaran */
-            border: 5px solid #FFD700; 
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3); 
-            animation: bounceIn 1.5s ease-out; 
-        }
-
-        /* Animasi untuk gambar */
-        @keyframes bounceIn {
-            0% { transform: scale(0.1); opacity: 0; }
-            60% { transform: scale(1.1); opacity: 1; }
-            100% { transform: scale(1); }
-        }
-
-        /* Gambar Profil */
-        .profile-img {
-            width: 100%; 
-            height: 100%;
-            object-fit: cover; 
-            border-radius: 0; 
-        }
-
-        /* About Text */
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-            padding-right: 220px; /* Tambahkan ruang kosong di kanan agar teks tidak tumpang tindih dengan gambar */
-        }
-        .about-text p {
-            font-family: 'Patrick Hand', 'Arial', cursive; /* Teks santai */
-        }
-        /* Info list: Lebih santai, kurang kotak - gunakan flexbox vertikal dengan ikon emoji dan garis halus */
-        .info-list {
-            margin-top: 20px;
-            position: relative;
-        }
-        .info-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            /* TAMBAH PADDING KIRI AGAR TIDAK NABRAK GARIS TIMELINE */
-            padding: 15px 15px 15px 50px; 
-            background: linear-gradient(45deg, rgba(255, 165, 0, 0.1), rgba(255, 140, 0, 0.1)); /* Gradien halus, transparan */
-            border-radius: 20px; /* Lebih bulat, kurang kotak */
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-        .info-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.5s;
-        }
-        .info-item:hover::before {
-            left: 100%;
-        }
-        .info-item:hover {
-            transform: translateX(10px); /* Geser ke kanan untuk efek santai */
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        .info-icon {
-            font-size: 2em;
-            margin-right: 15px;
-            flex-shrink: 0;
-            /* PINDAH POSISI IKON SEDIKIT KE KIRI UNTUK MERAPIKAN */
-            position: absolute;
-            left: 10px; 
-        }
-        .info-text {
-            flex: 1;
-        }
-        .info-text strong {
+        .hero h1 {
             font-family: 'Fredoka One', 'Arial', sans-serif;
-            color: #FF6600;
-            display: block;
-            margin-bottom: 5px;
-        }
-        .info-text span {
-            font-family: 'Patrick Hand', 'Arial', cursive;
-        }
-        /* Garis vertikal untuk efek timeline santai */
-        .info-list::after {
-            content: '';
-            position: absolute;
-            left: 30px; /* DIPINDAH AGAR TIDAK NABRAK IKON */
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(to bottom, #FFA500, #FF4500);
-            border-radius: 2px;
-        }
-
-        /* Responsif untuk mobile: Lebih fokus pada vertikal, teks lebih besar, navigasi mudah */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5em; }
-            .hero p { font-size: 1.2em; }
-            
-            /* MOBILE LAYOUT ADJUSTMENTS */
-            .about-content { 
-                flex-direction: column; 
-                text-align: center; 
-                align-items: center; 
-                display: flex; /* Aktifkan flex untuk menyusun vertikal */
-                padding-top: 0; 
-            }
-            .about-image { 
-                position: static; /* Kembali ke posisi normal */
-                width: 200px; /* Ukuran standar mobile */
-                height: 200px;
-                margin: 20px auto; /* Centered di tengah */
-                order: 2; /* Gambar di bawah teks */
-            }
-            .about-text { 
-                padding-right: 0; /* Hapus padding yang mengganggu di mobile */
-                order: 1; /* Teks di atas gambar */
-                text-align: left; /* Kembalikan teks ke kiri */
-            }
-            .profile-img { 
-                width: 100%; 
-                height: 100%;
-            }
-            
-            .info-list::after { display: none; } /* Sembunyikan garis di mobile untuk lebih clean */
-            .info-item {
-                flex-direction: row; /* Biarkan ikon di samping teks (lebih ringkas) */
-                text-align: left;
-                padding: 10px 15px; /* Kurangi padding di mobile */
-            }
-            .info-icon {
-                position: static; /* Hilangkan posisi absolut */
-                margin-right: 15px;
-                margin-bottom: 0;
-                font-size: 1.5em;
-            }
-
-            .projects-grid { grid-template-columns: 1fr; }
-            nav a { margin: 0 10px; font-size: 0.9em; }
-            h2 { font-size: 2em; } 
-            section { padding: 60px 15px; } 
-        }
-        /* Projects Grid mirip Canva: 3-column grid dengan card */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        .project-card {
-            background: linear-gradient(45deg, #FF8C00, #FF4500); /* Gradien oranye */
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-        .project-card:hover::before {
-            left: 100%; /* Shimmer effect untuk rame */
-        }
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-        }
-        .project-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        .project-card h3 {
-            font-family: 'Fredoka One', 'Arial', sans-serif; /* Heading card: Kartun */
-            font-size: 1.5em;
+            font-size: 4em;
             margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: slideInUp 1s ease-out 0.5s both;
         }
-        .project-card p {
-            font-family: 'Patrick Hand', 'Arial', cursive; /* Body card: Santai */
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        /* Contact Section mirip Canva: Sederhana dengan form placeholder */
-        .contact-content {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .contact-content p {
-            font-family: 'Patrick Hand', 'Arial', cursive; /* Teks santai */
-            font-size: 1.2em;
-            margin-bottom: 20px;
-        }
-        .contact-links a {
-            color: #FF6600;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            font-family: 'Patrick Hand', 'Arial', cursive;
-            transition: color 0.3s, transform 0.3s;
-        }
-        .contact-links a:hover {
-            color: #FF4500;
-        }
-        .contact-links a:active {
-            transform: scale(0.9); /* Animasi klik: scale down */
-            transition: transform 0.1s;
-        }
-        /* Footer mirip Canva: Minimal di bawah dengan oranye tua */
-        footer {
-            background: #FF4500; /* Oranye tua */
+        .cta-button {
+            background: #FF4500;
             color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            font-family: 'Patrick Hand', 'Arial', cursive; /* Footer santai */
-        }
-    </style>
-</head>
-<body>
-    <nav>
-        <a href="#about">Tentang</a>
-        <a href="#projects">Proyek</a>
-        <a href="#contact">Kontak</a>
-    </nav>
-
-    <section class="hero">
-        <h1>Pesatir-Handalz</h1>
-        <p>Seorang <strong>Content Creator</strong> dan Juga <strong>Programer</strong> Pemula</p>
-        <a href="#about" class="cta-button">Pelajari Lebih Kanjut</a>
-    </section>
-
-    <section id="about">
-        <h2>Tentang Gwejsh</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>Hai! Perkenalkan aku Aurellio, atau sering dikenal dengan nama panggung <strong>Pesatir-Handal</strong>. Gw adalah seorang <strong>Content Crator</strong> yang sekarang fokus ke platform <strong>YouTube</strong>. Aku mempunyai beberapa hobbi seperti <strong>menggambar</strong> dan juga <strong>belajar coding</strong>. Sedikit fakta ajah, gw buat ini website sebenernya juga cuman buat belajar <strong>script HTML</strong> doang :v</p><br>
-                <h3 style="font-family: 'Fredoka One', 'Arial', sans-serif; color: #FF6600; text-align: center; margin-bottom: 20px;">Sedikit Informasi tentang diriku</h3>
-                <div class="info-list">
-                    <div class="info-item">
-                        <div class="info-icon">🏡</div>
-                        <div class="info-text">
-                            <strong>Tempat Tinggal:</strong> <span>Indonesia, Horeg Timur</span>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">🏫</div>
-                        <div class="info-text">
-                            <strong>Pendidikan:</strong> <span>SMK (Kelas 10)</span>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">🎓</div>
-                        <div class="info-text">
-                            <strong>Jurusan:</strong> <span>Teknik Jaringan dan Komputer</span>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">🎧</div>
-                        <div class="info-text">
-                            <strong>Hobby:</strong> <span>Belajar coding, Menggambar, dan Bermain Game</span>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">🖥️</div>
-                        <div class="info-text">
-                            <strong>Keahlian:</strong> <span>Editor Video (3 Tahun Pengalaman)</span>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">👰</div>
-                        <div class="info-text">
-                            <strong>Istri:</strong> <span>Hu Tao 🥰</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="about-image">
-                <img src="https://i.supaimg.com/d0384578-5503-4efe-9b34-01e9e01f8aab.png" alt="Foto Profil" class="profile-img" onerror="this.src='https://via.placeholder.com/300x400/FF8C00/FFFFFF?text=Foto+Error'">
-            </div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <h2>Proyek Saya</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <img src="https://via.placeholder.com/350x200/FFA500/FFFFFF?text=Website+E-Commerce" alt="Proyek 1">
-                <h3>Pengembangan TawBot</h3>
-                <p>Proyek terniat dan terambisiusku adalah pengembangan bot discord <strong>TawBot</strong>. Ada beberapa fitur yang akan aku tambahkan nanti, seperti moderasi server, musik, dan game mini.</p>
-            </div>
-            <div class="project-card">
-                <img src="https://via.placeholder.com/350x200/FF8C00/FFFFFF?text=Logo+Branding" alt="Proyek 2">
-                <h3>Website Portofolio Ini</h3>
-                <p>Proyek iseng untuk belajar HTML, CSS, dan Javascript dasar. Dibuat dengan inspirasi desain Canva yang ceria dan *lively*.</p>
-            </div> </div> </section> <section id="contact">
-        <h2>Kontak Saya</h2>
-        <div class="contact-content">
-            <p>Saya siap bekerja sama jika anda menginginkan nya.</p>
-            <p>Untuk hasil yg fast respon untuk sekarang, kamu bisa langsung DM aku pribadi melalui DISCORD</p>
-            <div class="contact-links">
-                <a href="#">Instagram: @pesatir_handalz</a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 ┃ Made With Love By Suami Hutao</p>
-    </footer>
-
-    <script>
-    </script>
-</body>
-</html>
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Patrick
