@@ -147,17 +147,17 @@
             margin-right: -50px; /* Geser sedikit keluar dari section */
             margin-top: -30px; 
 
-            /* --- CLIP-PATH UNTUK BENTUK GELOMBANG --- */
-            clip-path: polygon(0 0, 100% 0, 100% 80%, 40% 100%, 0 95%); 
+            /* --- CLIP-PATH DIHAPUS UNTUK MENCEGAH PEMOTONGAN --- */
+            /* clip-path: polygon(0 0, 100% 0, 100% 80%, 40% 100%, 0 95%); */
 
             /* Background merah dihilangkan */
         }
         .about-image .profile-img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Diubah ke cover agar tidak terpotong */
-            transform: translateY(10%); 
-            transform-origin: bottom center; 
+            object-fit: contain; /* Diubah ke contain agar gambar tidak terpotong */
+            /* transform: translateY(10%);  Hapus transform agar gambar penuh */
+            /* transform-origin: bottom center; */
         }
         
         /* Teks Utama (Paragraf Perkenalan saja) */
@@ -435,7 +435,7 @@
                 <p>Proyek terniat dan terambisiusku adalah pengembangan bot discord <strong>TawBot</strong>. Ada beberapa fitur yang akan aku tambahkan nanti, seperti moderasi server, musik, dan game mini.</p>
             </div>
             <div class="project-card">
-                <img src="via.placeholder.com/350x200/8B0000/FFFFFF?text=Website+Portofolio" alt="Proyek 2">
+                <img src="https://via.placeholder.com/350x200/8B0000/FFFFFF?text=Website+Portofolio" alt="Proyek 2">
                 <h3>Website Portofolio Ini</h3>
                 <p>Proyek iseng untuk belajar HTML, CSS, dan Javascript dasar. Dibuat dengan inspirasi desain Canva yang ceria dan *lively*.</p>
             </div> 
@@ -458,7 +458,4 @@
     </footer>
 
     <script>
-        // Tambahan JavaScript jika diperlukan untuk animasi lebih lanjut, tapi smooth scroll sudah di CSS
-    </script>
-</body>
-</html>
+        // Tambahan JavaScript jika diperlukan untuk animasi lebih lanjut, tapi smooth scroll sudah di
