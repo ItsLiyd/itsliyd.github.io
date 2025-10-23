@@ -22,11 +22,11 @@
 
         body {
             font-family: 'Patrick Hand', 'Arial', cursive;
-            background: linear-gradient(135deg, #8B0000, #DC143C); /* Gradasi Merah Gelap ke Merah Cerah */
+            background: linear-gradient(135deg, #8B0000, #DC143C); /* Gradasi merah gelap ke merah cerah */
             color: #333;
             line-height: 1.6;
             overflow-x: hidden;
-            scroll-behavior: smooth;
+            scroll-behavior: smooth; /* Smooth scroll untuk animasi tombol section */
         }
         section {
             padding: 80px 50px; 
@@ -51,7 +51,7 @@
             padding-bottom: 15px;
         }
 
-        /* NAVIGATION & HERO (Menggunakan Merah) */
+        /* NAVIGATION */
         nav {
             position: fixed;
             top: 0;
@@ -63,33 +63,31 @@
             backdrop-filter: blur(10px);
         }
         nav a {
-             color: white;
-             text-decoration: none;
-             margin: 0 20px;
-             font-weight: bold;
-             transition: all 0.3s ease; 
-             font-family: 'Patrick Hand', 'Arial', cursive;
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: all 0.3s ease; /* Transisi untuk glow */
+            font-family: 'Patrick Hand', 'Arial', cursive;
         }
         nav a:hover {
-             color: #FFD700;
-             box-shadow: 0 0 10px #FFD700; 
-             transform: translateY(-2px);
+            color: #FFD700;
+            box-shadow: 0 0 10px #FFD700; /* Glow effect */
+            transform: translateY(-2px);
         }
+
+        /* HERO SECTION */
         .hero {
-             height: 100vh;
-             display: flex;
-             flex-direction: column; 
-             justify-content: center;
-             align-items: center; 
-             text-align: center;
-             background: linear-gradient(135deg, rgba(139, 0, 0, 0.8), rgba(220, 20, 60, 0.9)); /* Merah gelap */
-             color: white;
-             padding: 0 20px;
-             animation: fadeIn 1.5s ease-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            height: 100vh;
+            display: flex;
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center; 
+            text-align: center;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.8), rgba(220, 20, 60, 0.9)); /* Merah gelap */
+            color: white;
+            padding: 0 20px;
+            animation: fadeIn 1.5s ease-out;
         }
         .hero-profile-image {
             width: 200px; 
@@ -99,45 +97,33 @@
             border: 5px solid #FFD700; 
             box-shadow: 0 5px 20px rgba(0,0,0,0.3); 
             margin-bottom: 30px; 
-            animation: bounceIn 1.5s ease-out; 
         }
-        @keyframes bounceIn {
-            0% { transform: scale(0.1); opacity: 0; }
-            60% { transform: scale(1.1); opacity: 1; }
-            100% { transform: scale(1); }
-        }
-
         .hero h1 {
             font-family: 'Fredoka One', 'Arial', sans-serif;
             font-size: 4em;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: slideInUp 1s ease-out 0.5s both;
-        }
-        @keyframes slideInUp {
-             from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
         }
         .cta-button {
-             background: #DC143C; /* Merah */
-             color: white;
-             padding: 15px 30px;
-             border: none;
-             border-radius: 50px;
-             font-size: 1.2em;
-             cursor: pointer;
-             text-decoration: none;
-             display: inline-block;
-             font-family: 'Patrick Hand', 'Arial', cursive;
-             transition: all 0.3s ease; 
+            background: #DC143C; /* Merah */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Patrick Hand', 'Arial', cursive;
+            transition: all 0.3s ease; /* Transisi untuk glow */
         }
         .cta-button:hover {
-             background: #B22222;
-             box-shadow: 0 0 20px #FFD700; 
-             transform: translateY(-2px);
+            background: #B22222;
+            box-shadow: 0 0 20px #FFD700; /* Glow effect */
+            transform: translateY(-2px);
         }
 
-        /* --- ABOUT SECTION & LAYOUT --- */
+        /* ABOUT SECTION & LAYOUT */
         .about-content {
             display: flex;
             align-items: flex-start; 
@@ -146,39 +132,39 @@
             position: relative;
             padding-top: 0; 
         }
-        
-        /* Gambar Profil (Bulat, KANAN) */
+
+        /* Gambar Profil (Minecraft Skin, Bentuk Gelombang) */
         .about-image {
             display: block; 
-            width: 250px; 
-            height: 250px; 
+            width: 300px; 
+            height: 350px; 
             flex-shrink: 0;
             overflow: hidden;
-            border: 5px solid #FFD700; 
-            border-radius: 50%; 
+            border: none; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
             order: 2; /* Posisikan di KANAN */
             position: relative; 
-            margin-right: -50px; 
+            margin-right: -50px; /* Geser sedikit keluar dari section */
             margin-top: -30px; 
-            
-            clip-path: none; 
-            background: transparent; 
-            animation: bounceIn 1.5s ease-out; 
-        }
 
+            /* --- CLIP-PATH UNTUK BENTUK GELOMBANG --- */
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 40% 100%, 0 95%); 
+
+            /* Background merah dihilangkan */
+        }
         .about-image .profile-img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* PERBAIKAN: Pastikan gambar terlihat utuh */
-            transform: none; /* PERBAIKAN: Hapus pergeseran yang menyebabkan pemotongan */
-            transform-origin: center; 
+            object-fit: cover; /* Diubah ke cover agar tidak terpotong */
+            transform: translateY(10%); 
+            transform-origin: bottom center; 
         }
-
-        /* Teks Utama (KIRI) */
+        
+        /* Teks Utama (Paragraf Perkenalan saja) */
         .about-text {
             flex: 1;
             min-width: 400px; 
+            padding-right: 0; 
             max-width: 700px; 
             margin: 0; 
             order: 1; /* Posisikan di KIRI */
@@ -187,67 +173,61 @@
         .about-text p {
             font-size: 1.4em; 
             margin-bottom: 20px;
-            text-align: left; 
+            text-align: left; /* Paragraf Perkenalan RATA KIRI */
         }
 
-        /* --- INFO LIST (Daftar Info dan Timeline) --- */
-        /* Info Center (Sedikit Informasi di Bawah) */
+        /* Info Center (Sedikit Informasi di Tengah Bawah) */
         .info-center {
-            text-align: left; 
+            text-align: center;
             margin-top: 40px;
-            width: 100%; 
-            padding-left: 0; 
         }
         .info-center h3 {
-             font-family: 'Fredoka One', 'Arial', sans-serif;
-             color: #DC143C; 
-             text-align: left; 
-             margin-bottom: 20px;
-             margin-left: 50px; 
+            font-family: 'Fredoka One', 'Arial', sans-serif;
+            color: #DC143C; /* Merah */
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; /* Jarak antara emoji dan teks */
         }
-        
+        .info-center h3::before {
+            content: '😊'; /* Emoji kiri */
+            font-size: 1.5em;
+        }
+        .info-center h3::after {
+            content: '😊'; /* Emoji kanan */
+            font-size: 1.5em;
+        }
         .info-list {
+            margin-top: 20px;
             position: relative;
-            padding-left: 100px; 
-            max-width: 800px; 
-            margin: 0; 
+            padding-left: 0px;
+            max-width: 600px; 
+            margin: 0 auto; /* Tengah */
         }
 
-        /* GARIS TIMELINE VERTICAL DIKEMBALIKAN (di kiri list) */
+        /* GARIS TIMELINE VERTICAL DIHAPUS */
         .info-list::after {
-            content: '';
-            position: absolute;
-            left: 70px; 
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(to bottom, #DC143C, #B22222); 
-            border-radius: 2px;
-            display: block; 
+            display: none; 
         }
 
         .info-item {
-            display: block; 
+            display: flex;
+            align-items: center;
             margin-bottom: 20px;
             padding: 15px; 
-            background: #FFF8F8; 
+            background: linear-gradient(45deg, rgba(220, 20, 60, 0.1), rgba(139, 0, 0, 0.1)); /* Merah */
             border-radius: 20px;
             position: relative;
-            overflow: visible; 
-            transition: transform 0.2s;
+            overflow: hidden;
         }
-        .info-item:hover {
-             transform: translateY(-3px);
-             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        /* IKON (Bulatan di garis) - Penempatan Baru di Garis Timeline */
+
+        /* IKON (Bulatan di garis) - Penempatan Baru di Kiri Item */
         .info-icon {
             font-size: 1.2em; 
             flex-shrink: 0;
             position: absolute; 
-            left: 48px; 
-            top: 15px; 
+            left: 20px; /* Geser ikon ke kiri (di dalam padding item) */
             z-index: 5;
             width: 35px; 
             height: 35px;
@@ -256,17 +236,17 @@
             align-items: center;
             background: white; 
             border-radius: 50%;
-            border: 3px solid #DC143C; 
+            border: 3px solid #DC143C; /* Merah */
         }
 
         .info-text {
-            padding-left: 0; 
+            padding-left: 55px; /* Jarak aman agar teks tidak menabrak ikon */
             width: 100%;
         }
 
         .info-text strong {
             font-family: 'Fredoka One', 'Arial', sans-serif;
-            color: #DC143C; 
+            color: #DC143C; /* Merah */
             display: block;
             margin-bottom: 5px;
         }
@@ -278,52 +258,34 @@
             gap: 30px;
         }
         .project-card {
-            background: linear-gradient(45deg, #8B0000, #DC143C); 
+            background: linear-gradient(45deg, #8B0000, #DC143C); /* Merah */
             color: white;
             padding: 30px;
             border-radius: 15px;
             text-align: center;
-            transition: all 0.3s ease; 
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s ease; /* Transisi untuk hover */
         }
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-        }
-        .project-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        .project-card h3 {
-            font-family: 'Fredoka One', 'Arial', sans-serif;
-            font-size: 1.5em;
-            margin-bottom: 10px;
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #FFD700; /* Glow effect */
         }
 
-        /* BUSINESS SECTION */
+        /* BUSINESS SECTION (sebelumnya contact) */
         .contact-content {
             text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
         }
         .contact-links a {
-            color: #DC143C; 
+            color: #DC143C; /* Merah */
             text-decoration: none;
             font-weight: bold;
-            transition: color 0.3s, transform 0.3s;
         }
         .contact-links a:hover {
             text-decoration: underline;
         }
 
-        /* FOOTER */
         footer {
-            background: #DC143C; 
+            background: #DC143C; /* Merah */
             color: white;
             text-align: center;
             padding: 20px;
@@ -340,18 +302,17 @@
             .about-image {
                 width: 250px;
                 height: 250px;
-                order: 2; 
+                order: 2; /* Tetap kanan, tapi di mobile column */
                 margin: 20px auto; 
                 clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); 
                 border-radius: 15px; 
-                animation: none; 
             }
             .about-image .profile-img {
-                object-fit: cover; /* Di mobile, mungkin lebih baik cover jika ingin memenuhi kotak */
+                object-fit: cover; 
                 transform: none; 
             }
             .about-text {
-                order: 1; 
+                order: 1; /* Tetap kiri, tapi di mobile column */
                 max-width: 100%;
                 padding-right: 0;
             }
@@ -360,30 +321,30 @@
             }
             .info-center h3 {
                 text-align: center !important;
-                margin-left: 0;
+                flex-direction: column; /* Emoji di atas/bawah di mobile */
+                gap: 5px;
             }
-            
+            .info-center h3::before, .info-center h3::after {
+                display: none; /* Sembunyikan emoji di mobile untuk kesederhanaan */
+            }
+            /* Penyesuaian list di mobile */
             .info-list {
                 padding-left: 0;
                 max-width: 100%;
             }
-            .info-list::after {
-                display: none;
-            }
             .info-item {
-                 display: flex; 
-                 align-items: center;
-                 padding-left: 15px;
-                 width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+                width: 90%;
+                padding-left: 15px; /* Sesuaikan padding item */
             }
             .info-icon {
-                position: static; 
-                left: auto;
-                top: auto;
-                margin-right: 15px;
+                position: absolute; /* Tetap absolute agar tidak menggeser teks */
+                left: 15px;
+                transform: none;
             }
             .info-text {
-                padding-left: 0; /* Ubah ini menjadi 0 karena ikon sudah ada margin kanan */
+                padding-left: 55px;
             }
 
             .hero h1 { font-size: 2.5em; }
@@ -416,50 +377,49 @@
         <h2>About</h2>
         <div class="about-content">
             <div class="about-text">
-                <p>Hai! Perkenalkan aku Aurellio, atau sering dikenal dengan nama panggung **Pesatir-Handal**. Gw adalah seorang **Content Crator** yang sekarang fokus ke platform **YouTube**. Aku mempunyai beberapa hobbi seperti **menggambar** dan juga **belajar coding**. Sedikit fakta ajah, gw buat ini website sebenernya juga cuman buat belajar **script HTML** doang :v</p>
+                <p>Hai! Perkenalkan aku Aurellio, atau sering dikenal dengan nama panggung <strong>Pesatir-Handal</strong>. Gw adalah seorang <strong>Content Crator</strong> yang sekarang fokus ke platform <strong>YouTube</strong>. Aku mempunyai beberapa hobbi seperti <strong>menggambar</strong> dan juga <strong>belajar coding</strong>. Sedikit fakta ajah, gw buat ini website sebenernya juga cuman buat belajar <strong>script HTML</strong> doang :v</p>
             </div>
             <div class="about-image">
-                <img src="https://i.supaimg.com/d0384578-5503-4efe-9b34-01e9e01f8aab.png" alt="Anime Profile" class="profile-img">
+                <img src="https://i.supaimg.com/d0384578-5503-4efe-9b34-01e9e01f8aab.png" alt="Minecraft Skin" class="profile-img">
             </div>
         </div>
-        
         <div class="info-center">
             <h3>Sedikit Informasi Tentang Gw</h3>
             <div class="info-list">
                 <div class="info-item">
                     <div class="info-icon">🏡</div>
                     <div class="info-text">
-                        <strong>Tempat Tinggal:</strong> <br><span>Indonesia, Horeg Timur</span>
+                        <strong>Tempat Tinggal:</strong> <span>Indonesia, Horeg Timur</span>
                     </div>
                 </div>
                 <div class="info-item">
                     <div class="info-icon">🏫</div>
                     <div class="info-text">
-                        <strong>Pendidikan:</strong> <br><span>SMK (Kelas 10)</span>
+                        <strong>Pendidikan:</strong> <span>SMK (Kelas 10)</span>
                     </div>
                 </div>
                 <div class="info-item">
                     <div class="info-icon">🎓</div>
                     <div class="info-text">
-                        <strong>Jurusan:</strong> <br><span>Teknik Jaringan dan Komputer</span>
+                        <strong>Jurusan:</strong> <span>Teknik Jaringan dan Komputer</span>
                     </div>
                 </div>
                 <div class="info-item">
                     <div class="info-icon">🎧</div>
                     <div class="info-text">
-                        <strong>Hobby:</strong> <br><span>Belajar coding, Menggambar, dan Bermain Game</span>
+                        <strong>Hobby:</strong> <span>Belajar coding, Menggambar, dan Bermain Game</span>
                     </div>
                 </div>
                 <div class="info-item">
                     <div class="info-icon">🖥️</div>
                     <div class="info-text">
-                        <strong>Keahlian:</strong> <br><span>Editor Video (3 Tahun Pengalaman)</span>
+                        <strong>Keahlian:</strong> <span>Editor Video (3 Tahun Pengalaman)</span>
                     </div>
                 </div>
                 <div class="info-item">
                     <div class="info-icon">👰</div>
                     <div class="info-text">
-                        <strong>Istri:</strong> <br><span>Hu Tao 🥰</span>
+                        <strong>Istri:</strong> <span>Hu Tao 🥰</span>
                     </div>
                 </div>
             </div>
@@ -472,10 +432,10 @@
             <div class="project-card">
                 <img src="https://via.placeholder.com/350x200/DC143C/FFFFFF?text=Pengembangan+TawBot" alt="Proyek 1">
                 <h3>Pengembangan TawBot</h3>
-                <p>Proyek terniat dan terambisiusku adalah pengembangan bot discord **TawBot**. Ada beberapa fitur yang akan aku tambahkan nanti, seperti moderasi server, musik, dan game mini.</p>
+                <p>Proyek terniat dan terambisiusku adalah pengembangan bot discord <strong>TawBot</strong>. Ada beberapa fitur yang akan aku tambahkan nanti, seperti moderasi server, musik, dan game mini.</p>
             </div>
             <div class="project-card">
-                <img src="https://via.placeholder.com/350x200/8B0000/FFFFFF?text=Website+Portofolio" alt="Proyek 2">
+                <img src="via.placeholder.com/350x200/8B0000/FFFFFF?text=Website+Portofolio" alt="Proyek 2">
                 <h3>Website Portofolio Ini</h3>
                 <p>Proyek iseng untuk belajar HTML, CSS, dan Javascript dasar. Dibuat dengan inspirasi desain Canva yang ceria dan *lively*.</p>
             </div> 
