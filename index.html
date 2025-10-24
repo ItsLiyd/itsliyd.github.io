@@ -220,12 +220,17 @@
             font-size: 1.2em;
             cursor: pointer;
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             font-weight: 600;
             transition: all 0.3s ease;
             animation: fadeInUp 1s ease-out 0.6s both;
             position: relative;
             overflow: hidden;
+            min-height: 50px;
+            min-width: 200px;
+            white-space: nowrap;
         }
         
         .cta-button::before {
@@ -636,6 +641,14 @@
                 height: 150px;
             }
             
+            /* Perbaikan tombol untuk HP */
+            .cta-button {
+                font-size: 1em;
+                padding: 12px 24px;
+                min-width: 180px;
+                min-height: 45px;
+            }
+            
             section {
                 padding: 60px 20px;
             }
@@ -647,6 +660,16 @@
             .contact-methods {
                 flex-direction: column;
                 align-items: center;
+            }
+        }
+        
+        /* Tambahan untuk HP kecil */
+        @media (max-width: 480px) {
+            .cta-button {
+                font-size: 0.9em;
+                padding: 10px 20px;
+                min-width: 160px;
+                min-height: 40px;
             }
         }
     </style>
@@ -682,7 +705,7 @@
         <img src="https://i.supaimg.com/d0384578-5503-4efe-9b34-01e9e01f8aab.png" alt="Foto Profil" class="hero-profile-image">
         <h1>Pesatir-Handalz</h1>
         <p>Seorang <strong>Content Creator</strong> dan <strong>Programmer</strong> yang sedang dalam perjalanan pengembangan diri</p>
-        <a href="#about" class="cta-button">Pelajari Lebih Kanjut</a>
+        <a href="#about" class="cta-button">Pelajari Lebih Lanjut</a>
     </section>
 
     <!-- ABOUT SECTION -->
