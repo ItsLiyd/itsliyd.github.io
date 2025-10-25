@@ -1,4 +1,4 @@
-# 🌐 itsliyd.github.io
+# 🌐 liyd.github.io
 
 ## 💻 Deskripsi Proyek
 
@@ -14,7 +14,7 @@ Repositori ini berisi semua berkas sumber (termasuk `index.html`, berkas CSS, Ja
 ## 🔗 Kunjungi Situs Langsung
 
 Anda dapat melihat versi langsung dari situs web ini di URL berikut:
-👉 **[https://itsliyd.github.io/](https://itsliyd.github.io/)**
+👉 **[https://itsliyd.github.io/](https://liyd.github.io/)**
 
 ## 🛠️ Teknologi yang Digunakan
 
