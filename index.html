@@ -1046,6 +1046,21 @@
         }
         
         /* MEDIA QUERIES */
+        /* MEDIA QUERY UNTUK MENENGahkan EMAIL DI DESKTOP */
+        @media (min-width: 769px) {
+            .contact-methods {
+                grid-template-columns: repeat(3, 1fr); /* Membuat 3 kolom untuk 3 item pertama */
+            }
+
+            /* Menargetkan item email */
+            .contact-method-email {
+                grid-column: 1 / -1; /* Membuat item email menempati baris baru di bawah */
+                display: flex;
+                justify-content: center; /* Menengahkan item di dalam container */
+                margin-top: 20px; /* Memberi jarak dari baris di atasnya */
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
@@ -1428,13 +1443,13 @@
                     </a>
                     
                     <!-- Email -->
-                    <a href="mailto:tidak publik" class="contact-method-link">
+                    <a href="mailto:contact@pesatir-handalz.com" class="contact-method-link contact-method-email">
                         <div class="contact-method">
                             <div class="contact-icon">
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <h4>Email</h4>
-                            <p>Tidak Publik</p>
+                            <p>Hubungi Saya</p>
                         </div>
                     </a>
                 </div>
