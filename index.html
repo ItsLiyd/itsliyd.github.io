@@ -1053,14 +1053,19 @@
         @media (min-width: 769px) {
             .contact-methods {
                 grid-template-columns: repeat(3, 1fr); /* Membuat 3 kolom untuk 3 item pertama */
+            grid-auto-rows: auto; /* Menambahkan baris otomatis */
+            grid-auto-flow: row dense; /* Memungkinkan penempatan yang lebih fleksibel */
+            gap: 25px;
+            max-width: 900px; /* Membatasi lebar maksimal */
+                margin: 40px auto 0; /* Menengahkan container */
             }
 
             /* Menargetkan item email */
             .contact-method-email {
-                grid-column: 1 / -1; /* Membuat item email menempati baris baru di bawah */
-                display: flex;
-                justify-content: center; /* Menengahkan item di dalam container */
-                margin-top: 20px; /* Memberi jarak dari baris di atasnya */
+                grid-column: 2; /* Menempatkan email di kolom tengah */
+                grid-row: 2; /* Menempatkan email di baris kedua */
+                margin: 0 auto; /* Menengahkan item email */
+                max-width: 250px; /* Membatasi lebar maksimal agar tidak terlalu lebar */
             }
         }
 
@@ -1362,7 +1367,7 @@
         </div>
         <h1>Pesatir-Handalz</h1>
         <p>Seorang <strong>Content Creator</strong> dan <strong>Programmer</strong> yang sedang dalam perjalanan pengembangan diri</p>
-        <a href="#about" class="cta-button">Pelajari Lebih Kanjut</a>
+        <a href="#about" class="cta-button">Pelajari Lebih Lanjut</a>
     </section>
 
     <!-- ABOUT SECTION - DESAIN ABSTRAK BARU -->
