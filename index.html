@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pesatir_Handalz ┃ Website</title>
+    <title>my website gwejsh</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" sizes="32x32" href="https://i.supaimg.com/9b405f7f-aad3-4d62-917a-d4f03ceea80b.jpg">
@@ -1045,7 +1045,10 @@
             transform: translateY(-5px);
         }
         
-        /* MEDIA QUERIES */
+        /* ============================================================= */
+        /* =================== MOBILE-FIRST ENHANCEMENTS =============== */
+        /* ============================================================= */
+
         /* MEDIA QUERY UNTUK MENENGahkan EMAIL DI DESKTOP */
         @media (min-width: 769px) {
             .contact-methods {
@@ -1061,20 +1064,24 @@
             }
         }
 
+        /* Tablet & Large Phones (max-width: 768px) */
         @media (max-width: 768px) {
+            /* Navigation */
             .nav-links {
                 position: fixed;
-                top: 70px;
+                top: 70px; /* Sesuaikan dengan tinggi navbar */
                 left: 0;
                 width: 100%;
-                background: rgba(220, 20, 60, 0.95);
+                background: rgba(139, 0, 0, 0.98); /* Lebih gelap untuk kontras */
+                backdrop-filter: blur(15px);
                 flex-direction: column;
-                padding: 20px;
-                gap: 15px;
+                padding: 30px 20px;
+                gap: 20px; /* Jarak lebih besar */
                 transform: translateY(-100%);
                 opacity: 0;
                 visibility: hidden;
-                transition: all 0.3s ease;
+                transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             }
             
             .nav-links.active {
@@ -1083,27 +1090,30 @@
                 visibility: visible;
             }
             
+            .nav-links a {
+                font-size: 1.2rem; /* Font lebih besar */
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
+            
             .hamburger {
                 display: flex;
             }
             
-            .hamburger.active span:nth-child(1) {
-                transform: rotate(-45deg) translate(-5px, 6px);
-            }
-            
-            .hamburger.active span:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .hamburger.active span:nth-child(3) {
-                transform: rotate(45deg) translate(-5px, -6px);
-            }
-            
+            /* Hero Section */
             .hero h1 {
-                font-size: 2.5em;
+                font-size: 2.8em; /* Sedikit lebih kecil dari desktop */
             }
             
-            /* Hero profile mobile */
+            .hero p {
+                font-size: 1.1em;
+                padding: 0 10px;
+            }
+            
             .hero-profile-frame {
                 width: 220px;
                 height: 220px;
@@ -1120,17 +1130,23 @@
             }
             
             .cta-button {
-                font-size: 1em;
-                padding: 12px 24px;
-                min-width: 180px;
-                min-height: 45px;
+                font-size: 1.1em;
+                padding: 14px 28px;
+                min-width: 200px;
+                min-height: 55px;
             }
             
+            /* Sections */
             section {
-                padding: 60px 20px;
+                padding: 60px 25px; /* Padding horizontal lebih besar */
             }
             
-            /* About section mobile */
+            h2 {
+                font-size: 2.2em;
+                margin-bottom: 30px;
+            }
+
+            /* About Section */
             .about-content-wrapper {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -1141,63 +1157,170 @@
             }
             
             .about-text-card {
-                padding: 30px 20px;
+                padding: 30px 25px;
+                text-align: center;
             }
             
             .about-image-card {
                 transform: rotate(0deg);
+                max-width: 80%;
+                margin: 0 auto;
+            }
+
+            /* Info Grid */
+            .info-grid-new {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .info-card-new {
+                padding: 20px;
             }
             
+            /* Projects Section */
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .project-card {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            /* Business Section */
             .contact-methods {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 25px;
+            }
+            
+            .contact-method {
+                padding: 30px 25px;
+            }
+            
+            .contact-icon {
+                width: 75px;
+                height: 75px;
+                font-size: 2rem;
+            }
+        }
+        
+        /* Small Phones (max-width: 480px) */
+        @media (max-width: 480px) {
+            /* Hero Section */
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            
+            .hero p {
+                font-size: 1em;
+            }
+            
+            .cta-button {
+                font-size: 1em;
+                padding: 12px 24px;
+                min-width: 180px;
+                min-height: 50px;
+            }
+            
+            /* Sections */
+            section {
+                padding: 50px 20px;
+            }
+            
+            h2 {
+                font-size: 1.9em;
+            }
+
+            /* About Section */
+            .about-title {
+                font-size: 1.9em;
+            }
+            
+            .about-text-card {
+                padding: 25px 20px;
+            }
+
+            .about-text-card h3 {
+                font-size: 1.5em;
+            }
+            
+            .about-text-card p {
+                font-size: 1em;
+            }
+            
+            /* Info Grid */
+            .info-card-new {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .info-icon-new {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+            
+            /* Projects Section */
+            .project-content {
+                padding: 25px 20px;
+            }
+
+            .project-content h3 {
+                font-size: 1.4em;
+            }
+            
+            .project-content p {
+                font-size: 0.95em;
+            }
+            
+            .project-link {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+            
+            /* Business Section */
+            .contact-methods {
+                grid-template-columns: 1fr; /* Satu kolom untuk fokus maksimal */
                 gap: 20px;
             }
             
             .contact-method {
-                padding: 25px 15px;
+                padding: 25px 20px;
             }
             
             .contact-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
             }
 
-            .projects-grid {
-                grid-template-columns: 1fr;
+            .contact-method h4 {
+                font-size: 1.1em;
             }
         }
-        
-        @media (max-width: 480px) {
-            .cta-button {
-                font-size: 0.9em;
-                padding: 10px 20px;
-                min-width: 160px;
-                min-height: 40px;
+
+        /* Very Small Phones (max-width: 380px) */
+        @media (max-width: 380px) {
+            .hero h1 {
+                font-size: 2em;
             }
             
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                top: 60px;
+            }
+            
+            h2 {
+                font-size: 1.7em;
+            }
+
             .about-title {
-                font-size: 1.8em;
-            }
-            
-            .info-grid-new {
-                grid-template-columns: 1fr;
-            }
-            
-            /* Hero profile extra small */
-            .hero-profile-frame {
-                width: 180px;
-                height: 180px;
-            }
-            
-            .hero-profile-image {
-                width: 160px;
-                height: 160px;
-            }
-            
-            .shape-1, .shape-2 {
-                width: 220px;
-                height: 220px;
+                font-size: 1.7em;
             }
         }
     </style>
@@ -1213,7 +1336,7 @@
         <div class="nav-container">
             <a href="#" class="logo">
                 <i class="fas fa-code"></i>
-                Pesatir_Handalz
+                Pesatir-Handalz
             </a>
             <div class="nav-links">
                 <a href="#about">Tentang</a>
@@ -1237,7 +1360,7 @@
                 <img src="https://i.supaimg.com/d0384578-5503-4efe-9b34-01e9e01f8aab.png" alt="Foto Profil" class="hero-profile-image">
             </div>
         </div>
-        <h1>Pesatir_Handalz</h1>
+        <h1>Pesatir-Handalz</h1>
         <p>Seorang <strong>Content Creator</strong> dan <strong>Programmer</strong> yang sedang dalam perjalanan pengembangan diri</p>
         <a href="#about" class="cta-button">Pelajari Lebih Lanjut</a>
     </section>
@@ -1254,7 +1377,7 @@
                 <div class="about-text-card">
                     <div class="abstract-shape-1"></div>
                     <h3>Halo, Saya Aurellio! 👋</h3>
-                    <p>Lebih dikenal dengan nama panggung <strong>Pesatir_Handalz</strong>. Saya adalah seorang <strong>Content Creator</strong> yang saat ini fokus di platform <strong>YouTube</strong> dan seorang <strong>Programmer</strong> yang sedang terus mengasah skill (bukan linggis jawa) untuk menjadi Pengoding Hamdal.</p>
+                    <p>Lebih dikenal dengan nama panggung <strong>Pesatir-Handalz</strong>. Saya adalah seorang <strong>Content Creator</strong> yang saat ini fokus di platform <strong>YouTube</strong> dan seorang <strong>Programmer</strong> yang sedang terus mengasah skill (bukan linggis jawa) untuk menjadi Pengoding Hamdal.</p>
                     
                     <p>Aku memiliki beberapa hobi seperti <strong>menggambar</strong> dan <strong>belajar coding</strong>. Website ini di buat karena atmin nya juga iseng-iseng buat dan juga buat belajar <strong>HTML</strong> juga.</p>
                     
@@ -1405,8 +1528,7 @@
         <div class="business-container">
             <h2>Bisnis & Kolaborasi</h2>
             <div class="business-content">
-                <p>Aku sangat terbuka jika ada rencana kerja sama</p>
-                <p><strong>(jangan percaya, untuk saat ini belom :v)</strong></p>
+                <p>Aku sangat terbuka jika ada rencana kerja sama <strong>(jangan percaya, untuk saat ini belom :v)</strong></p>
                 <p>Untuk pilihan yang lebih fast respon, kamu bisa memilih salah satu menu berikut</p>
                 
                 <div class="contact-methods">
@@ -1442,6 +1564,17 @@
                             <p>Pesatir-Handalz</p>
                         </div>
                     </a>
+                    
+                    <!-- Email -->
+                    <a href="mailto:contact@pesatir-handalz.com" class="contact-method-link contact-method-email">
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h4>Email</h4>
+                            <p>Hubungi Saya</p>
+                        </div>
+                    </a>
                 </div>
             </div>
             
@@ -1456,12 +1589,12 @@
     <footer>
         <div class="footer-content">
             <div class="social-links">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-discord"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/pesatir_handalz" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@Pesatir_Handalz" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                <a href="https://dsc.gg/liydcomunity" target="_blank" rel="noopener noreferrer"><i class="fab fa-discord"></i></a>
+                <a href="https://github.com/ItsLiyd" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
             </div>
-            <p>&copy; 2025 Pesatir_Handalz | Dibuat dengan <i class="fas fa-heart" style="color: #FFD700;"></i> oleh Suami Hu Tao</p>
+            <p>&copy; 2025 Pesatir-Handalz | Dibuat dengan <i class="fas fa-heart" style="color: #FFD700;"></i> oleh Suami Hu Tao</p>
         </div>
     </footer>
 
